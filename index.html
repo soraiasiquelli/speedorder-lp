@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <!-- ============================================================
+       META BÁSICO
+  ============================================================ -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SpeedOrder — Sistema de Gestão para Restaurantes e Lanchonetes Universitárias</title>
+  <meta name="description" content="SpeedOrder é o sistema completo para gestão de restaurantes e lanchonetes universitárias: pedidos em tempo real, PDV, cozinha, estoque, caixa e relatórios em uma única plataforma. Comece grátis.">
+  <meta name="keywords" content="sistema para restaurante, gestão de pedidos, PDV para restaurante, sistema para lanchonete universitária, QR Code pedidos, software de gestão gastronômica, SpeedOrder, UniEat, EatOrder">
+  <meta name="author" content="Siquelli Web">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.speedorder.com.br/">
+
+  <!-- ============================================================
+       OPEN GRAPH
+  ============================================================ -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="SpeedOrder">
+  <meta property="og:title" content="SpeedOrder — Gestão completa para restaurantes e lanchonetes universitárias">
+  <meta property="og:description" content="Pedidos, cozinha, caixa, estoque e relatórios em uma única plataforma. Conheça o SpeedOrder e transforme a operação do seu estabelecimento.">
+  <meta property="og:url" content="https://www.speedorder.com.br/">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:image" content="https://www.speedorder.com.br/assets/og-image.jpg">
+  <meta property="og:image:alt" content="Dashboard do SpeedOrder mostrando pedidos em tempo real">
+
+  <!-- ============================================================
+       TWITTER CARDS
+  ============================================================ -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="SpeedOrder — Gestão completa para restaurantes e lanchonetes universitárias">
+  <meta name="twitter:description" content="Pedidos, cozinha, caixa, estoque e relatórios em uma única plataforma. Comece gratuitamente.">
+  <meta name="twitter:image" content="https://www.speedorder.com.br/assets/og-image.jpg">
+
+  <!-- ============================================================
+       FAVICON
+  ============================================================ -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%23E53935'/><path d='M10 22 L18 22 L18 18 L22 18 L14 10 L14 14 L10 14 Z' fill='white'/></svg>">
+
+  <!-- ============================================================
+       FONTES — Inter (display/body) + JetBrains Mono (dados/rótulos)
+  ============================================================ -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+
+  <!-- ============================================================
+       ESTILOS
+  ============================================================ -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- ============================================================
+       SCHEMA.ORG — SoftwareApplication
+  ============================================================ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "SpeedOrder",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web",
+    "description": "Sistema completo para gestão de restaurantes e lanchonetes universitárias: pedidos em tempo real, PDV, cozinha, estoque, caixa e relatórios.",
+    "url": "https://www.speedorder.com.br/",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "BRL",
+      "description": "Plano gratuito para começar"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "ratingCount": "127"
+    }
+  }
+  </script>
+</head>
+<body>
+
+  <a class="skip-link" href="#conteudo-principal">Pular para o conteúdo principal</a>
+
+  <!-- ============================================================
+       HEADER / NAVBAR
+  ============================================================ -->
+  <header class="navbar" role="banner">
+    <div class="container navbar__inner">
+      <a href="#topo" class="navbar__logo" aria-label="SpeedOrder — página inicial">
+        <img src="assets/logo_speedorder.png" alt="SpeedOrder" class="navbar__logo-img">
+      </a>
+
+      <nav class="navbar__nav" aria-label="Navegação principal">
+        <ul class="navbar__links">
+          <li><a href="#funcionalidades">Funcionalidades</a></li>
+          <li><a href="#modulos">Módulos</a></li>
+          <li><a href="#como-funciona">Como Funciona</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </nav>
+
+      <div class="navbar__actions">
+        <a href="#entrar" class="btn btn--ghost">Entrar</a>
+        <a href="#comecar" class="btn btn--primary btn--sm">Começar Gratuitamente</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="conteudo-principal">
+
+    <!-- ============================================================
+         HERO
+    ============================================================ -->
+    <section class="hero" id="topo" aria-labelledby="hero-titulo">
+      <div class="container hero__inner">
+        <div class="hero__content">
+          <p class="eyebrow"><span class="eyebrow__dot" aria-hidden="true"></span>Feito para operações rápidas</p>
+          <h1 id="hero-titulo" class="hero__title">
+            O sistema completo para gestão de <span class="text-accent">restaurantes</span> e lanchonetes universitárias.
+          </h1>
+          <p class="hero__subtitle">
+            Gerencie pedidos, cozinha, caixa, estoque, atendimento e relatórios em uma única plataforma — do balcão ao dashboard.
+          </p>
+          <div class="hero__actions">
+            <a href="#comecar" class="btn btn--primary btn--lg">Começar Gratuitamente</a>
+            <a href="#demo" class="btn btn--outline btn--lg">Agendar Demonstração</a>
+          </div>
+          <p class="hero__note">Sem cartão de crédito · Configuração em minutos</p>
+        </div>
+
+        <div class="hero__visual" role="img" aria-label="Ilustração de painel do SpeedOrder mostrando pedidos chegando em tempo real, PDV inteligente e indicadores de faturamento">
+          <div class="mock-dashboard">
+            <div class="mock-dashboard__topbar">
+              <span class="mock-dot mock-dot--red" aria-hidden="true"></span>
+              <span class="mock-dot mock-dot--muted" aria-hidden="true"></span>
+              <span class="mock-dot mock-dot--muted" aria-hidden="true"></span>
+              <span class="mock-dashboard__title">painel · ao vivo</span>
+            </div>
+
+            <div class="mock-dashboard__body">
+              <div class="mock-stat">
+                <span class="mock-stat__label">Faturamento hoje</span>
+                <span class="mock-stat__value">R$ 4.812</span>
+                <span class="mock-stat__trend">↑ 18%</span>
+              </div>
+
+              <ul class="mock-feed" aria-hidden="true">
+                <li class="mock-feed__item mock-feed__item--in">
+                  <span class="mock-feed__badge">#128</span> Mesa 06 · 2 itens
+                </li>
+                <li class="mock-feed__item mock-feed__item--in mock-feed__item--delay1">
+                  <span class="mock-feed__badge">#129</span> Balcão · 1 item
+                </li>
+                <li class="mock-feed__item mock-feed__item--in mock-feed__item--delay2">
+                  <span class="mock-feed__badge">#130</span> App · 4 itens
+                </li>
+              </ul>
+
+              <div class="mock-chart" aria-hidden="true">
+                <span style="--h:38%"></span><span style="--h:52%"></span><span style="--h:41%"></span>
+                <span style="--h:67%"></span><span style="--h:59%"></span><span style="--h:80%"></span>
+                <span style="--h:71%"></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="float-card float-card--orders">
+            <span class="float-card__icon" aria-hidden="true">⚡</span>
+            <div>
+              <strong>Pedidos em tempo real</strong>
+              <span>Atualização instantânea</span>
+            </div>
+          </div>
+
+          <div class="float-card float-card--pdv">
+            <span class="float-card__icon" aria-hidden="true">🖥️</span>
+            <div>
+              <strong>PDV Inteligente</strong>
+              <span>Caixa integrado</span>
+            </div>
+          </div>
+
+          <div class="float-card float-card--qr">
+            <span class="float-card__icon" aria-hidden="true">▦</span>
+            <div>
+              <strong>QR Code</strong>
+              <span>Pedido pela mesa</span>
+            </div>
+          </div>
+
+          <div class="float-card float-card--ai">
+            <span class="float-card__icon" aria-hidden="true">✦</span>
+            <div>
+              <strong>Inteligência Artificial</strong>
+              <span>Sugestões automáticas</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         MÓDULOS — UniEat / EatOrder
+    ============================================================ -->
+    <section class="modules" id="modulos" aria-labelledby="modules-titulo">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow"><span class="eyebrow__dot" aria-hidden="true"></span>Uma plataforma, dois módulos especializados</p>
+          <h2 id="modules-titulo" class="section-heading__title">Escolha a solução ideal para o seu negócio.</h2>
+        </div>
+
+        <div class="modules__grid">
+          <article class="module-card">
+            <span class="module-card__emoji" aria-hidden="true">🎓</span>
+            <h3 class="module-card__title">UniEat</h3>
+            <p class="module-card__desc">Sistema especializado para lanchonetes universitárias, feito para o ritmo dos intervalos entre aulas.</p>
+            <ul class="module-card__list">
+              <li>Pedido por QR Code</li>
+              <li>Controle de filas</li>
+              <li>Painel de preparo</li>
+              <li>Caixa</li>
+              <li>Dashboard</li>
+              <li>Relatórios</li>
+              <li>Gestão de produtos</li>
+            </ul>
+            <a href="#unieat" class="btn btn--outline btn--full">Conhecer UniEat</a>
+          </article>
+
+          <article class="module-card module-card--accent">
+            <span class="module-card__emoji" aria-hidden="true">🍽</span>
+            <h3 class="module-card__title">EatOrder</h3>
+            <p class="module-card__desc">Sistema especializado para restaurantes, com controle completo de salão, cozinha e caixa.</p>
+            <ul class="module-card__list">
+              <li>Gestão de mesas</li>
+              <li>Pedidos em tempo real</li>
+              <li>Garçons</li>
+              <li>Cozinha</li>
+              <li>PDV</li>
+              <li>Controle de caixa</li>
+              <li>Dashboard</li>
+              <li>Relatórios</li>
+            </ul>
+            <a href="#eatorder" class="btn btn--primary btn--full">Conhecer EatOrder</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         FUNCIONALIDADES
+    ============================================================ -->
+    <section class="features" id="funcionalidades" aria-labelledby="features-titulo">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow"><span class="eyebrow__dot" aria-hidden="true"></span>Funcionalidades</p>
+          <h2 id="features-titulo" class="section-heading__title">Tudo o que a sua operação precisa, em um só lugar.</h2>
+        </div>
+
+        <ul class="features__grid">
+          <li class="feature-card">
+            <span class="feature-card__icon" aria-hidden="true">📱</span>
+            <h3>Pedidos Digitais</h3>
+            <p>Pedidos feitos direto pelo cliente, sem filas e sem retrabalho para a equipe.</p>
+          </li>
+          <li class="feature-card">
+            <span class="feature-card__icon" aria-hidden="true">▦</span>
+            <h3>QR Code</h3>
+            <p>Cardápio e pedido acessíveis com um único código, direto da mesa.</p>
+          </li>
+          <li class="feature-card">
+            <span class="feature-card__icon" aria-hidden="true">📊</span>
+            <h3>Dashboard Inteligente</h3>
+            <p>Indicadores de vendas, produtos e desempenho em tempo real.</p>
+          </li>
+          <li class="feature-card">
+            <span class="feature-card__icon" aria-hidden="true">🍳</span>
+            <h3>Painel da Cozinha</h3>
+            <p>Fila de preparo organizada, com prioridade e tempo de cada pedido.</p>
+          </li>
+          <li class="feature-card">
+            <span class="feature-card__icon" aria-hidden="true">🖥️</span>
+            <h3>PDV</h3>
+            <p>Frente de caixa rápida, integrada aos pedidos e ao estoque.</p>
+          </li>
+          <li class="feature-card">
+            <span class="feature-card__icon" aria-hidden="true">💳</span>
+            <h3>Controle Financeiro</h3>
+            <p>Visão clara de receitas, despesas e fechamento por período.</p>
+          </li>
+          <li class="feature-card">
+            <span class="feature-card__icon" aria-hidden="true">🗄️</span>
+            <h3>Controle de Caixa</h3>
+            <p>Abertura, sangria e fechamento de caixa sem planilhas paralelas.</p>
+          </li>
+          <li class="feature-card">
+            <span class="feature-card__icon" aria-hidden="true">📦</span>
+            <h3>Estoque</h3>
+            <p>Insumos e produtos atualizados automaticamente a cada venda.</p>
+          </li>
+          <li class="feature-card">
+            <span class="feature-card__icon" aria-hidden="true">🏷️</span>
+            <h3>Produtos</h3>
+            <p>Cadastro de cardápio com variações, categorias e disponibilidade.</p>
+          </li>
+          <li class="feature-card">
+            <span class="feature-card__icon" aria-hidden="true">📈</span>
+            <h3>Relatórios</h3>
+            <p>Relatórios prontos sobre vendas, horários de pico e ticket médio.</p>
+          </li>
+          <li class="feature-card">
+            <span class="feature-card__icon" aria-hidden="true">👥</span>
+            <h3>Funcionários</h3>
+            <p>Cadastro de equipe com funções específicas para cada operação.</p>
+          </li>
+          <li class="feature-card">
+            <span class="feature-card__icon" aria-hidden="true">🔀</span>
+            <h3>Multiusuários</h3>
+            <p>Vários acessos simultâneos, sem travar a operação do restaurante.</p>
+          </li>
+          <li class="feature-card">
+            <span class="feature-card__icon" aria-hidden="true">🔐</span>
+            <h3>Permissões</h3>
+            <p>Controle de acesso por cargo, do caixa à gerência.</p>
+          </li>
+          <li class="feature-card">
+            <span class="feature-card__icon" aria-hidden="true">✦</span>
+            <h3>Inteligência Artificial</h3>
+            <p>Sugestões de cardápio e previsão de demanda com apoio de IA.</p>
+          </li>
+          <li class="feature-card">
+            <span class="feature-card__icon" aria-hidden="true">🕘</span>
+            <h3>Histórico de pedidos</h3>
+            <p>Consulta rápida de pedidos anteriores, por cliente ou período.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         COMO FUNCIONA — TIMELINE
+    ============================================================ -->
+    <section class="how-it-works" id="como-funciona" aria-labelledby="how-titulo">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow"><span class="eyebrow__dot" aria-hidden="true"></span>Como funciona</p>
+          <h2 id="how-titulo" class="section-heading__title">Do cadastro ao primeiro pedido, em cinco passos.</h2>
+        </div>
+
+        <ol class="timeline">
+          <li class="timeline__step">
+            <span class="timeline__marker">1</span>
+            <h3>Cadastre seu estabelecimento</h3>
+            <p>Informe os dados do seu restaurante ou lanchonete e crie sua conta.</p>
+          </li>
+          <li class="timeline__step">
+            <span class="timeline__marker">2</span>
+            <h3>Escolha o módulo adequado</h3>
+            <p>Selecione UniEat ou EatOrder, de acordo com o seu tipo de operação.</p>
+          </li>
+          <li class="timeline__step">
+            <span class="timeline__marker">3</span>
+            <h3>Cadastre seu cardápio</h3>
+            <p>Adicione produtos, categorias, preços e variações em poucos minutos.</p>
+          </li>
+          <li class="timeline__step">
+            <span class="timeline__marker">4</span>
+            <h3>Receba pedidos em tempo real</h3>
+            <p>Pedidos chegam direto na cozinha e no caixa, sem atraso.</p>
+          </li>
+          <li class="timeline__step">
+            <span class="timeline__marker">5</span>
+            <h3>Gerencie tudo pelo dashboard</h3>
+            <p>Acompanhe vendas, estoque e desempenho em um único painel.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         DASHBOARD SHOWCASE
+    ============================================================ -->
+    <section class="dashboard-showcase" aria-labelledby="dash-titulo">
+      <div class="container">
+        <div class="section-heading section-heading--light">
+          <p class="eyebrow eyebrow--light"><span class="eyebrow__dot" aria-hidden="true"></span>Visão gerencial</p>
+          <h2 id="dash-titulo" class="section-heading__title">Um painel que mostra a saúde do seu negócio de relance.</h2>
+        </div>
+
+        <div class="showcase-panel" role="img" aria-label="Painel de indicadores do SpeedOrder com faturamento, pedidos, produtos mais vendidos e gráfico de vendas por dia">
+          <div class="showcase-panel__cards">
+            <div class="kpi-card">
+              <span class="kpi-card__label">Faturamento do mês</span>
+              <span class="kpi-card__value">R$ 96.420</span>
+              <span class="kpi-card__delta kpi-card__delta--up">+12,4%</span>
+            </div>
+            <div class="kpi-card">
+              <span class="kpi-card__label">Pedidos</span>
+              <span class="kpi-card__value">2.318</span>
+              <span class="kpi-card__delta kpi-card__delta--up">+8,1%</span>
+            </div>
+            <div class="kpi-card">
+              <span class="kpi-card__label">Ticket médio</span>
+              <span class="kpi-card__value">R$ 41,60</span>
+              <span class="kpi-card__delta kpi-card__delta--down">-1,2%</span>
+            </div>
+            <div class="kpi-card">
+              <span class="kpi-card__label">Clientes ativos</span>
+              <span class="kpi-card__value">874</span>
+              <span class="kpi-card__delta kpi-card__delta--up">+5,7%</span>
+            </div>
+          </div>
+
+          <div class="showcase-panel__row">
+            <div class="showcase-chart">
+              <div class="showcase-chart__header">
+                <span>Vendas por dia</span>
+                <span class="showcase-chart__period">Últimos 7 dias</span>
+              </div>
+              <div class="showcase-chart__bars" aria-hidden="true">
+                <span style="--h:45%"></span><span style="--h:62%"></span><span style="--h:38%"></span>
+                <span style="--h:71%"></span><span style="--h:55%"></span><span style="--h:83%"></span>
+                <span style="--h:66%"></span>
+              </div>
+            </div>
+
+            <div class="showcase-table">
+              <div class="showcase-table__header">Produtos mais vendidos</div>
+              <table>
+                <thead>
+                  <tr><th scope="col">Produto</th><th scope="col">Vendas</th><th scope="col">Receita</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>X-Salada Especial</td><td>412</td><td>R$ 8.240</td></tr>
+                  <tr><td>Combo Suco Natural</td><td>355</td><td>R$ 4.615</td></tr>
+                  <tr><td>Marmita Executiva</td><td>298</td><td>R$ 6.556</td></tr>
+                  <tr><td>Refrigerante Lata</td><td>276</td><td>R$ 1.380</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         DIFERENCIAIS
+    ============================================================ -->
+    <section class="differentials" aria-labelledby="diff-titulo">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow"><span class="eyebrow__dot" aria-hidden="true"></span>Por que escolher o SpeedOrder</p>
+          <h2 id="diff-titulo" class="section-heading__title">Construído para operações que não podem parar.</h2>
+        </div>
+
+        <ul class="differentials__grid">
+          <li class="diff-card">
+            <span class="diff-card__icon" aria-hidden="true">🎯</span>
+            <h3>Interface intuitiva</h3>
+            <p>Equipe treinada em minutos, sem manuais complicados.</p>
+          </li>
+          <li class="diff-card">
+            <span class="diff-card__icon" aria-hidden="true">⚡</span>
+            <h3>Sistema rápido</h3>
+            <p>Respostas instantâneas mesmo em horário de pico.</p>
+          </li>
+          <li class="diff-card">
+            <span class="diff-card__icon" aria-hidden="true">📱</span>
+            <h3>Qualquer dispositivo</h3>
+            <p>Funciona em computador, tablet e celular sem instalação.</p>
+          </li>
+          <li class="diff-card">
+            <span class="diff-card__icon" aria-hidden="true">🛡️</span>
+            <h3>Segurança dos dados</h3>
+            <p>Informações do seu negócio protegidas e com backup contínuo.</p>
+          </li>
+          <li class="diff-card">
+            <span class="diff-card__icon" aria-hidden="true">🔄</span>
+            <h3>Atualizações constantes</h3>
+            <p>Novas funcionalidades chegam sem custo adicional.</p>
+          </li>
+          <li class="diff-card">
+            <span class="diff-card__icon" aria-hidden="true">🎧</span>
+            <h3>Suporte especializado</h3>
+            <p>Time pronto para ajudar antes, durante e depois da implantação.</p>
+          </li>
+          <li class="diff-card">
+            <span class="diff-card__icon" aria-hidden="true">✦</span>
+            <h3>Inteligência Artificial integrada</h3>
+            <p>Sugestões automáticas para vender mais com menos esforço.</p>
+          </li>
+          <li class="diff-card">
+            <span class="diff-card__icon" aria-hidden="true">📐</span>
+            <h3>Escalável</h3>
+            <p>Do quiosque universitário à rede de restaurantes.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         FAQ
+    ============================================================ -->
+    <section class="faq" id="faq" aria-labelledby="faq-titulo">
+      <div class="container container--narrow">
+        <div class="section-heading">
+          <p class="eyebrow"><span class="eyebrow__dot" aria-hidden="true"></span>Perguntas frequentes</p>
+          <h2 id="faq-titulo" class="section-heading__title">Ainda com dúvidas? Respondemos aqui.</h2>
+        </div>
+
+        <dl class="faq__list">
+          <div class="faq-item">
+            <dt><h3>Como funciona o SpeedOrder?</h3></dt>
+            <dd>O SpeedOrder centraliza pedidos, cozinha, caixa, estoque e relatórios em uma única plataforma acessada pelo navegador, sem instalação.</dd>
+          </div>
+          <div class="faq-item">
+            <dt><h3>Preciso instalar algum programa?</h3></dt>
+            <dd>Não. O sistema é 100% online e funciona direto pelo navegador, em qualquer computador, tablet ou celular.</dd>
+          </div>
+          <div class="faq-item">
+            <dt><h3>Funciona no celular?</h3></dt>
+            <dd>Sim. A interface é responsiva e foi pensada para uso no celular tanto pela equipe quanto pelos clientes.</dd>
+          </div>
+          <div class="faq-item">
+            <dt><h3>O sistema possui PDV?</h3></dt>
+            <dd>Sim. O SpeedOrder inclui um PDV completo, integrado automaticamente aos pedidos e ao estoque.</dd>
+          </div>
+          <div class="faq-item">
+            <dt><h3>Posso utilizar QR Code para os pedidos?</h3></dt>
+            <dd>Sim. É possível gerar QR Codes por mesa ou balcão para que o cliente faça o pedido diretamente pelo celular.</dd>
+          </div>
+          <div class="faq-item">
+            <dt><h3>Como funciona o suporte?</h3></dt>
+            <dd>Nosso time acompanha a implantação e fica disponível por chat e WhatsApp para dúvidas do dia a dia.</dd>
+          </div>
+          <div class="faq-item">
+            <dt><h3>Os dados do meu estabelecimento são seguros?</h3></dt>
+            <dd>Sim. Os dados são armazenados com criptografia e backups automáticos e contínuos.</dd>
+          </div>
+          <div class="faq-item">
+            <dt><h3>Posso adicionar funcionários com acessos diferentes?</h3></dt>
+            <dd>Sim. É possível cadastrar quantos funcionários forem necessários, cada um com permissões específicas.</dd>
+          </div>
+          <div class="faq-item">
+            <dt><h3>Existe período de teste gratuito?</h3></dt>
+            <dd>Sim. Você pode começar gratuitamente e conhecer o sistema antes de escolher um plano pago.</dd>
+          </div>
+          <div class="faq-item">
+            <dt><h3>Como faço para começar a usar?</h3></dt>
+            <dd>Basta clicar em "Começar Gratuitamente", cadastrar seu estabelecimento e escolher o módulo ideal para o seu negócio.</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         CTA FINAL
+    ============================================================ -->
+    <section class="final-cta" id="comecar" aria-labelledby="cta-titulo">
+      <div class="container final-cta__inner">
+        <h2 id="cta-titulo" class="final-cta__title">Pronto para transformar a gestão do seu estabelecimento?</h2>
+        <p class="final-cta__subtitle">Junte-se a restaurantes e lanchonetes universitárias que já eliminaram filas, planilhas e pedidos perdidos com o SpeedOrder.</p>
+        <div class="final-cta__actions">
+          <a href="#comecar-agora" class="btn btn--primary btn--lg">Começar Gratuitamente</a>
+          <a href="#demo" class="btn btn--outline-light btn--lg" id="demo">Agendar Demonstração</a>
+        </div>
+        <p class="final-cta__note">Grátis para começar · Sem fidelidade · Cancele quando quiser</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer class="footer" id="contato" role="contentinfo">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <a href="#topo" class="navbar__logo" aria-label="SpeedOrder — página inicial">
+          <img src="assets/logo_speedorder.png" alt="SpeedOrder" class="navbar__logo-img navbar__logo-img--footer">
+        </a>
+        <p>O sistema completo para gestão de restaurantes e lanchonetes universitárias.</p>
+      </div>
+
+      <nav class="footer__nav" aria-label="Links do rodapé">
+        <div class="footer__col">
+          <h3>Empresa</h3>
+          <ul>
+            <li><a href="#funcionalidades">Funcionalidades</a></li>
+            <li><a href="#modulos">Módulos</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#contato">Contato</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h3>Conta</h3>
+          <ul>
+            <li><a href="#entrar">Entrar</a></li>
+            <li><a href="#comecar">Começar Gratuitamente</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+    <div class="container footer__bottom">
+      <p>© 2026 SpeedOrder. Todos os direitos reservados.</p>
+      <p>Desenvolvido por <strong>Siquelli Web</strong>.</p>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       BOTÃO FLUTUANTE — WHATSAPP
+  ============================================================ -->
+  <a
+    href="https://wa.me/5511944007513"
+    class="whatsapp-float"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Falar com o SpeedOrder pelo WhatsApp"
+  >
+    <svg viewBox="0 0 32 32" width="28" height="28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M16.02 3C9.4 3 4 8.37 4 14.98c0 2.2.6 4.26 1.63 6.03L3 29l8.2-2.55a12.9 12.9 0 0 0 4.82.93h.01C22.63 27.38 28 22.02 28 15.4 28 8.79 22.63 3 16.02 3Z" fill="#25D366"/>
+      <path d="M22.02 19.1c-.34.94-1.69 1.72-2.74 1.94-.72.15-1.66.28-4.84-1.04-3.62-1.5-5.99-5.13-6.17-5.37-.18-.24-1.47-1.96-1.47-3.74 0-1.78.93-2.65 1.27-3.01.34-.36.73-.44 .97-.44.24 0 .49 0 .7.01.23.01.53-.09.83.63.34.82 1.14 2.85 1.24 3.06.1.21.16.45.03.72-.13.27-.2.44-.4.68-.2.24-.42.53-.6.71-.2.2-.41.42-.18.82.24.4 1.05 1.73 2.26 2.8 1.55 1.38 2.86 1.81 3.29 2.01.43.2.68.17.93-.1.25-.28 1.08-1.26 1.37-1.69.29-.43.58-.36.97-.22.4.15 2.5 1.18 2.93 1.39.43.22.72.32.83.5.11.18.11 1.02-.23 1.96Z" fill="#FFFFFF"/>
+    </svg>
+  </a>
+
+</body>
+</html>
