@@ -67,12 +67,99 @@
       "price": "0",
       "priceCurrency": "BRL",
       "description": "Plano gratuito para começar"
-    },
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.9",
-      "ratingCount": "127"
     }
+  }
+  </script>
+
+  <!-- ============================================================
+       SCHEMA.ORG — FAQPage (espelha a seção #faq visível na página)
+  ============================================================ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Como funciona o SpeedOrder?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "O SpeedOrder centraliza pedidos, cozinha, caixa, estoque e relatórios em uma única plataforma acessada pelo navegador, sem instalação."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Preciso instalar algum programa?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Não. O sistema é 100% online e funciona direto pelo navegador, em qualquer computador, tablet ou celular."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Funciona no celular?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sim. A interface é responsiva e foi pensada para uso no celular tanto pela equipe quanto pelos clientes."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "O sistema possui PDV?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sim. O SpeedOrder inclui um PDV completo, integrado automaticamente aos pedidos e ao estoque."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Posso utilizar QR Code para os pedidos?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sim. É possível gerar QR Codes por mesa ou balcão para que o cliente faça o pedido diretamente pelo celular."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Como funciona o suporte?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Nosso time acompanha a implantação e fica disponível por chat e WhatsApp para dúvidas do dia a dia."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Os dados do meu estabelecimento são seguros?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sim. Os dados são armazenados com criptografia e backups automáticos e contínuos."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Posso adicionar funcionários com acessos diferentes?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sim. É possível cadastrar quantos funcionários forem necessários, cada um com permissões específicas."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Existe período de teste gratuito?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sim. Você pode começar gratuitamente e conhecer o sistema antes de escolher um plano pago."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Como faço para começar a usar?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Basta preencher o formulário de contato ou chamar no WhatsApp para que um especialista libere seu acesso gratuito."
+        }
+      }
+    ]
   }
   </script>
 </head>
@@ -100,7 +187,6 @@
       </nav>
 
       <div class="navbar__actions">
-        <a href="#entrar" class="btn btn--ghost">Entrar</a>
         <a href="#comecar" class="btn btn--primary btn--sm">Começar Gratuitamente</a>
       </div>
     </div>
@@ -123,7 +209,7 @@
           </p>
           <div class="hero__actions">
             <a href="#comecar" class="btn btn--primary btn--lg">Começar Gratuitamente</a>
-            <a href="#demo" class="btn btn--outline btn--lg">Agendar Demonstração</a>
+            <a href="https://wa.me/5511944007513?text=Ol%C3%A1!%20Quero%20agendar%20uma%20demonstra%C3%A7%C3%A3o%20do%20SpeedOrder." class="btn btn--outline btn--lg" target="_blank" rel="noopener noreferrer">Agendar Demonstração</a>
           </div>
           <p class="hero__note">Sem cartão de crédito · Configuração em minutos</p>
         </div>
@@ -546,7 +632,7 @@
           </div>
           <div class="faq-item">
             <dt><h3>Como faço para começar a usar?</h3></dt>
-            <dd>Basta clicar em "Começar Gratuitamente", cadastrar seu estabelecimento e escolher o módulo ideal para o seu negócio.</dd>
+            <dd>Basta preencher o formulário de contato ou chamar no WhatsApp para que um especialista libere seu acesso gratuito.</dd>
           </div>
         </dl>
       </div>
@@ -558,14 +644,75 @@
     <section class="final-cta" id="comecar" aria-labelledby="cta-titulo">
       <div class="container final-cta__inner">
         <h2 id="cta-titulo" class="final-cta__title">Pronto para transformar a gestão do seu estabelecimento?</h2>
-        <p class="final-cta__subtitle">Junte-se a restaurantes e lanchonetes universitárias que já eliminaram filas, planilhas e pedidos perdidos com o SpeedOrder.</p>
-        <div class="final-cta__actions">
-          <a href="#comecar-agora" class="btn btn--primary btn--lg">Começar Gratuitamente</a>
-          <a href="#demo" class="btn btn--outline-light btn--lg" id="demo">Agendar Demonstração</a>
-        </div>
-        <p class="final-cta__note">Grátis para começar · Sem fidelidade · Cancele quando quiser</p>
+        <p class="final-cta__subtitle">Preencha seus dados e um especialista entra em contato para liberar seu acesso gratuito em poucos minutos.</p>
+
+        <!--
+          ============================================================
+          FORMULÁRIO DE CAPTURA DE LEAD — Formspree configurado
+          (endpoint: formspree.io/f/xrewrnqw). Respostas chegam
+          automaticamente no e-mail cadastrado na sua conta Formspree.
+          ============================================================
+        -->
+        <form
+          class="lead-form"
+          action="https://formspree.io/f/xrewrnqw"
+          method="POST"
+        >
+          <div class="lead-form__row">
+            <div class="lead-form__field">
+              <label for="lead-nome">Seu nome</label>
+              <input type="text" id="lead-nome" name="nome" placeholder="Como podemos te chamar?" required>
+            </div>
+            <div class="lead-form__field">
+              <label for="lead-estabelecimento">Nome do estabelecimento</label>
+              <input type="text" id="lead-estabelecimento" name="estabelecimento" placeholder="Ex: Cantina Central" required>
+            </div>
+          </div>
+
+          <div class="lead-form__row">
+            <div class="lead-form__field">
+              <label for="lead-whatsapp">WhatsApp</label>
+              <input type="tel" id="lead-whatsapp" name="whatsapp" placeholder="(11) 90000-0000" required>
+            </div>
+            <div class="lead-form__field">
+              <label for="lead-email">E-mail</label>
+              <input type="email" id="lead-email" name="email" placeholder="voce@exemplo.com" required>
+            </div>
+          </div>
+
+          <fieldset class="lead-form__type">
+            <legend>Tipo de estabelecimento</legend>
+            <div class="lead-form__type-options">
+              <label class="lead-form__type-option">
+                <input type="radio" name="tipo_estabelecimento" value="UniEat" required>
+                <span><span aria-hidden="true">🎓</span> Lanchonete Universitária</span>
+              </label>
+              <label class="lead-form__type-option">
+                <input type="radio" name="tipo_estabelecimento" value="EatOrder">
+                <span><span aria-hidden="true">🍽</span> Restaurante</span>
+              </label>
+            </div>
+          </fieldset>
+
+          <input type="hidden" name="_subject" value="Novo lead — SpeedOrder">
+
+          <button type="submit" class="btn btn--primary btn--lg lead-form__submit">Quero começar gratuitamente</button>
+          <p class="lead-form__privacy">Seus dados são usados só para entrarmos em contato. Sem spam.</p>
+        </form>
+
+        <div class="lead-form__divider"><span>ou</span></div>
+
+        <a
+          href="https://wa.me/5511944007513?text=Ol%C3%A1!%20Quero%20conhecer%20o%20SpeedOrder%20para%20o%20meu%20estabelecimento."
+          class="btn btn--outline-light btn--lg"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Falar agora no WhatsApp
+        </a>
       </div>
     </section>
+
 
   </main>
 
@@ -603,7 +750,7 @@
 
     <div class="container footer__bottom">
       <p>© 2026 SpeedOrder. Todos os direitos reservados.</p>
-      <p>Desenvolvido por <strong>Siquelli Web</strong>.</p>
+      <p>Desenvolvido por <strong>Pleiades Systems</strong>.</p>
     </div>
   </footer>
 
