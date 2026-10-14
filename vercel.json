@@ -1,9 +1,10 @@
 {
-  "rewrites": [
+  "routes": [
     {
-      "source": "/",
+      "src": "^/$",
       "has": [{ "type": "host", "value": "ai.speedorder.com.br" }],
-      "destination": "/ai-whatsapp/index.html"
-    }
+      "dest": "/ai-whatsapp/index.html"
+    },
+    { "handle": "filesystem" }
   ]
 }
