@@ -1,11 +1,14 @@
 /* ==================================================================
-   SPEED ORDER AI — /ai-whatsapp
+   SPEED ORDER AI — /ai-whatsapp (+ /pizzaria e /hamburgueria)
    1. Configuração de rastreamento
    2. Consentimento (LGPD) + carregamento de GA4 / Meta Pixel
    3. Eventos de clique e conversão
    4. UTMs no formulário e CTA "Começar agora"
    5. Animações de entrada
    6. Demonstração interativa (simulação local, sem API da Meta)
+
+   O segmento da página vem de <body data-segment="...">:
+   "pizzaria", "hamburgueria" ou ausente (página geral).
 ================================================================== */
 (function () {
   'use strict';
@@ -22,6 +25,7 @@
   };
 
   var CONSENT_KEY = 'so_consent_v1';
+  var SEGMENT = document.body.getAttribute('data-segment') || 'geral';
   var reducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   function storageGet(key) {
@@ -52,7 +56,7 @@
     if (TRACKING.GA4_ID) {
       window.gtag = function () { window.dataLayer.push(arguments); };
       window.gtag('js', new Date());
-      window.gtag('config', TRACKING.GA4_ID, { page_path: '/ai-whatsapp' });
+      window.gtag('config', TRACKING.GA4_ID, { page_path: window.location.pathname, content_group: 'ai_' + SEGMENT });
       loadScript('https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(TRACKING.GA4_ID));
     }
 
@@ -102,7 +106,7 @@
   var META_STANDARD = { generate_lead: 'Lead', whatsapp_click: 'Contact' };
 
   function track(name, params) {
-    params = params || {};
+    params = Object.assign({ segment: SEGMENT }, params || {});
     window.dataLayer.push(Object.assign({ event: name }, params));
     if (!trackersLoaded) return;
     if (typeof window.gtag === 'function' && TRACKING.GA4_ID) window.gtag('event', name, params);
@@ -186,22 +190,91 @@
   var afterEl = document.getElementById('demo-after');
   if (!chat || !replies || !cartEl || !ticketsEl) return;
 
+  /* --- Cardápio fictício --- */
   var PIZZAS = {
-    calabresa: { name: 'Calabresa', price: { G: 59.9, M: 47.9 } },
-    margherita: { name: 'Margherita', price: { G: 57.9, M: 45.9 } },
-    frango: { name: 'Frango c/ Catupiry', price: { G: 64.9, M: 52.9 } }
+    calabresa: { name: 'Calabresa', price: { M: 47.9, G: 59.9 } },
+    margherita: { name: 'Margherita', price: { M: 45.9, G: 57.9 } },
+    frango: { name: 'Frango c/ Catupiry', price: { M: 52.9, G: 64.9 } },
+    portuguesa: { name: 'Portuguesa', price: { M: 49.9, G: 62.9 } }
   };
+  var HALF_PAIRS = [['calabresa', 'margherita'], ['frango', 'calabresa'], ['portuguesa', 'margherita']];
+  var BORDAS = { catupiry: 'catupiry', cheddar: 'cheddar' };
+  var BORDA_PRICE = 9;
+
   var BURGERS = {
     xburger: { name: 'X-Burger', price: 26.9 },
     xbacon: { name: 'X-Bacon', price: 32.9 },
     smash: { name: 'Smash Duplo', price: 36.9 }
   };
-  var SIDES = {
-    coca2l: { name: 'Coca-Cola 2L', price: 14 },
-    batata: { name: 'Batata frita', price: 18 }
+  var BURGER_EXTRAS = {
+    bacon: { label: 'Bacon extra', price: 5 },
+    queijo: { label: 'Queijo extra', price: 4 }
   };
+  var COMBO_PRICE = 16; // batata frita + refrigerante lata
+  var COMBO_DRINKS = ['Coca-Cola lata', 'Guaraná lata'];
+
+  var ALL_SIDES = {
+    coca2l: { name: 'Coca-Cola 2L', price: 14, icon: '🥤', say: 'Manda uma Coca 2L também' },
+    guarana2l: { name: 'Guaraná 2L', price: 12, icon: '🥤', say: 'Põe um Guaraná 2L' },
+    batata: { name: 'Batata frita', price: 18, icon: '🍟', say: 'Uma batata frita também' },
+    cocalata: { name: 'Coca-Cola lata', price: 7, icon: '🥤', say: 'E uma Coca lata' }
+  };
+
   var SIZE_LABEL = { G: 'Grande', M: 'Média' };
   var DELIVERY = { bairro: 'Jardim América', fee: 6 };
+
+  /* --- Configuração por segmento --- */
+  var SEGMENTS = {
+    geral: {
+      store: 'Pizza & Burger Demo',
+      sides: ['coca2l', 'batata'],
+      menu: ['pizzas', 'burgers'],
+      start: [
+        { label: '🍕 Pedir uma pizza', say: 'Oi! Quero pedir uma pizza', go: 'pizzaFlavor' },
+        { label: '🍔 Pedir um hambúrguer', say: 'Quero um hambúrguer', go: 'burgerItem' },
+        { label: '📋 Ver o cardápio', say: 'Me manda o cardápio?', go: 'menu' },
+        { label: '👤 Falar com atendente', say: 'Prefiro falar com uma pessoa', go: 'human' }
+      ],
+      more: [
+        { label: '🍕 Pizza', say: 'Uma pizza', go: 'pizzaFlavor' },
+        { label: '🍔 Hambúrguer', say: 'Um hambúrguer', go: 'burgerItem' }
+      ],
+      moreQuestion: 'Claro! Pizza ou hambúrguer?'
+    },
+    pizzaria: {
+      store: 'Pizzaria Demo',
+      sides: ['coca2l', 'guarana2l'],
+      menu: ['pizzas'],
+      start: [
+        { label: '🍕 Pedir uma pizza', say: 'Oi! Quero pedir uma pizza', go: 'pizzaFlavor' },
+        { label: '🌗 Pizza meio a meio', say: 'Quero uma pizza meio a meio', go: 'halfFlavors' },
+        { label: '📋 Ver o cardápio', say: 'Me manda o cardápio?', go: 'menu' },
+        { label: '👤 Falar com atendente', say: 'Prefiro falar com uma pessoa', go: 'human' }
+      ],
+      more: [
+        { label: '🍕 Um sabor', say: 'Mais uma pizza', go: 'pizzaFlavor' },
+        { label: '🌗 Meio a meio', say: 'Mais uma, meio a meio', go: 'halfFlavors' }
+      ],
+      moreQuestion: 'Claro! Vai ser de um sabor ou meio a meio?'
+    },
+    hamburgueria: {
+      store: 'Burger Demo',
+      sides: ['batata', 'cocalata'],
+      menu: ['burgers'],
+      start: [
+        { label: '🍔 Pedir um lanche', say: 'Oi! Quero pedir um lanche', go: 'burgerItem' },
+        { label: '🍟 Pedir um combo', say: 'Quero um combo', go: 'comboItem' },
+        { label: '📋 Ver o cardápio', say: 'Me manda o cardápio?', go: 'menu' },
+        { label: '👤 Falar com atendente', say: 'Prefiro falar com uma pessoa', go: 'human' }
+      ],
+      more: [
+        { label: '🍔 Lanche', say: 'Mais um lanche', go: 'burgerItem' },
+        { label: '🍟 Combo', say: 'Mais um combo', go: 'comboItem' }
+      ],
+      moreQuestion: 'Claro! Lanche avulso ou combo?'
+    }
+  };
+  var SEG = SEGMENTS[SEGMENT] || SEGMENTS.geral;
 
   var state;
   var runId = 0;
@@ -368,16 +441,47 @@
         t.scrollIntoView({ behavior: reducedMotion ? 'auto' : 'smooth', block: 'center' });
       }, reducedMotion ? 0 : 700);
     }
-    return number;
   }
 
-  /* --- Opções reutilizadas --- */
-  function chooseCategoryOptions() {
-    return [
-      { label: '🍕 Pizza', say: 'Uma pizza', go: 'pizzaFlavor' },
-      { label: '🍔 Hambúrguer', say: 'Um hambúrguer', go: 'burgerItem' }
-    ];
+  /* --- Montagem dos itens --- */
+  function pizzaPrice(cur) {
+    return Math.max.apply(null, cur.flavors.map(function (k) { return PIZZAS[k].price[cur.size]; }));
   }
+  function pizzaName(cur) {
+    var size = SIZE_LABEL[cur.size];
+    if (cur.flavors.length === 2) {
+      return 'Pizza ' + size + ' ½ ' + PIZZAS[cur.flavors[0]].name + ' / ½ ' + PIZZAS[cur.flavors[1]].name;
+    }
+    return 'Pizza ' + size + ' ' + PIZZAS[cur.flavors[0]].name;
+  }
+  function commitPizza(obs) {
+    var cur = state.current;
+    var notes = [];
+    if (cur.borda) notes.push('borda de ' + cur.borda);
+    if (obs) notes.push(obs);
+    state.cart.push({
+      name: pizzaName(cur),
+      obs: notes.join(' · '),
+      price: pizzaPrice(cur) + (cur.borda ? BORDA_PRICE : 0)
+    });
+  }
+  function commitBurger() {
+    var cur = state.current;
+    var b = BURGERS[cur.key];
+    var notes = [cur.ponto];
+    var price = b.price;
+    if (cur.extra) {
+      notes.push(cur.extra.label.toLowerCase());
+      price += cur.extra.price;
+    }
+    if (cur.remove) notes.push(cur.remove);
+    if (cur.combo) {
+      notes.push('batata + ' + cur.drink);
+      price += COMBO_PRICE;
+    }
+    state.cart.push({ name: (cur.combo ? 'Combo ' : '') + b.name, obs: notes.join(' · '), price: price });
+  }
+
   function restartOption() {
     return { label: '🔄 Recomeçar simulação', go: 'start', action: resetState, primary: true };
   }
@@ -386,131 +490,207 @@
   var STEPS = {
     start: function () {
       return {
-        say: ['Olá! 👋 Aqui é o atendimento automático da Pizza & Burger Demo.\nPosso anotar seu pedido ou te mandar o cardápio. O que você prefere?'],
-        options: [
-          { label: '🍕 Pedir uma pizza', say: 'Oi! Quero pedir uma pizza', go: 'pizzaFlavor' },
-          { label: '🍔 Pedir um hambúrguer', say: 'Quero um hambúrguer', go: 'burgerItem' },
-          { label: '📋 Ver o cardápio', say: 'Me manda o cardápio?', go: 'menu' },
-          { label: '👤 Falar com atendente', say: 'Prefiro falar com uma pessoa', go: 'human' }
-        ]
+        say: ['Olá! 👋 Aqui é o atendimento automático da ' + SEG.store + '.\nPosso anotar seu pedido ou te mandar o cardápio. O que você prefere?'],
+        options: SEG.start
       };
     },
 
     menu: function () {
-      var text = '📋 Cardápio\n\n🍕 PIZZAS (média / grande)\n' +
-        Object.keys(PIZZAS).map(function (k) {
+      var parts = ['📋 Cardápio'];
+      if (SEG.menu.indexOf('pizzas') !== -1) {
+        parts.push('🍕 PIZZAS (média / grande)\n' + Object.keys(PIZZAS).map(function (k) {
           return '• ' + PIZZAS[k].name + ': ' + brl(PIZZAS[k].price.M) + ' / ' + brl(PIZZAS[k].price.G);
-        }).join('\n') +
-        '\n\n🍔 HAMBÚRGUERES\n' +
-        Object.keys(BURGERS).map(function (k) { return '• ' + BURGERS[k].name + ': ' + brl(BURGERS[k].price); }).join('\n') +
-        '\n\n🥤 ACOMPANHAMENTOS\n' +
-        Object.keys(SIDES).map(function (k) { return '• ' + SIDES[k].name + ': ' + brl(SIDES[k].price); }).join('\n');
+        }).join('\n') + (SEGMENT === 'pizzaria' ? '\nMeio a meio: vale o sabor de maior valor\nBorda recheada: +' + brl(BORDA_PRICE) : ''));
+      }
+      if (SEG.menu.indexOf('burgers') !== -1) {
+        parts.push('🍔 LANCHES\n' + Object.keys(BURGERS).map(function (k) {
+          return '• ' + BURGERS[k].name + ': ' + brl(BURGERS[k].price);
+        }).join('\n') + (SEGMENT === 'hamburgueria' ? '\nCombo (batata + refri lata): +' + brl(COMBO_PRICE) : ''));
+      }
+      parts.push('🥤 ' + (SEGMENT === 'hamburgueria' ? 'ACOMPANHAMENTOS' : SEGMENT === 'pizzaria' ? 'BEBIDAS' : 'ACOMPANHAMENTOS') + '\n' +
+        SEG.sides.map(function (k) { return '• ' + ALL_SIDES[k].name + ': ' + brl(ALL_SIDES[k].price); }).join('\n'));
       return {
-        say: [text, 'É só me dizer o que vai querer 😉'],
-        options: [
-          { label: '🍕 Pedir uma pizza', say: 'Vou querer uma pizza', go: 'pizzaFlavor' },
-          { label: '🍔 Pedir um hambúrguer', say: 'Vou de hambúrguer', go: 'burgerItem' }
-        ]
+        say: [parts.join('\n\n'), 'É só me dizer o que vai querer 😉'],
+        options: SEG.start.filter(function (o) { return o.go !== 'menu' && o.go !== 'human'; })
       };
     },
 
+    /* Pizzas */
     pizzaFlavor: function () {
       return {
-        say: ['Ótimo! Temos Calabresa, Margherita e Frango com catupiry. Qual sabor vai ser?'],
+        say: ['Ótimo! Temos Calabresa, Margherita, Frango com catupiry e Portuguesa. Qual sabor vai ser?'],
         options: Object.keys(PIZZAS).map(function (k) {
           return {
             label: PIZZAS[k].name,
             say: 'De ' + PIZZAS[k].name.toLowerCase().replace('c/', 'com'),
             go: 'pizzaSize',
-            action: function () { state.current = { kind: 'pizza', key: k }; }
+            action: function () { state.current = { kind: 'pizza', flavors: [k] }; }
+          };
+        })
+      };
+    },
+
+    halfFlavors: function () {
+      return {
+        say: ['Pode ser! Quais os dois sabores?'],
+        options: HALF_PAIRS.map(function (pair) {
+          var a = PIZZAS[pair[0]].name;
+          var b = PIZZAS[pair[1]].name;
+          return {
+            label: a + ' + ' + b,
+            say: 'Metade ' + a.toLowerCase().replace('c/', 'com') + ', metade ' + b.toLowerCase().replace('c/', 'com'),
+            go: 'pizzaSize',
+            action: function () { state.current = { kind: 'pizza', flavors: pair.slice() }; }
           };
         })
       };
     },
 
     pizzaSize: function () {
+      var cur = state.current;
+      var label = cur.flavors.length === 2 ? 'pizza meio a meio' : PIZZAS[cur.flavors[0]].name;
       return {
-        say: ['Boa escolha! Média (6 fatias) ou grande (8 fatias)?'],
+        say: ['Boa escolha! A ' + label + ' sai por ' + brl(pizzaPrice({ flavors: cur.flavors, size: 'M' })) + ' a média (6 fatias) ou ' +
+          brl(pizzaPrice({ flavors: cur.flavors, size: 'G' })) + ' a grande (8 fatias). Qual tamanho?'],
         options: ['G', 'M'].map(function (size) {
           return {
-            label: SIZE_LABEL[size],
+            label: SIZE_LABEL[size] + ' · ' + brl(pizzaPrice({ flavors: cur.flavors, size: size })),
             say: size === 'G' ? 'Grande, por favor' : 'Pode ser média',
-            go: 'pizzaObs',
+            go: 'pizzaBorda',
             action: function () { state.current.size = size; }
           };
         })
       };
     },
 
+    pizzaBorda: function () {
+      var options = Object.keys(BORDAS).map(function (k) {
+        return {
+          label: 'Borda de ' + BORDAS[k] + ' (+' + brl(BORDA_PRICE) + ')',
+          say: 'Quero com borda de ' + BORDAS[k],
+          go: 'pizzaObs',
+          action: function () { state.current.borda = BORDAS[k]; }
+        };
+      });
+      options.push({ label: 'Sem borda', say: 'Sem borda', go: 'pizzaObs' });
+      return { say: ['Quer borda recheada? Temos catupiry e cheddar, por mais ' + brl(BORDA_PRICE) + '.'], options: options };
+    },
+
     pizzaObs: function () {
-      var p = PIZZAS[state.current.key];
-      var name = 'Pizza ' + SIZE_LABEL[state.current.size] + ' ' + p.name;
-      var base = p.price[state.current.size];
-      function commit(obs, extra) {
-        return function () { state.cart.push({ name: name, obs: obs, price: base + (extra || 0) }); };
-      }
       return {
-        say: ['Anotado: ' + name + '. Alguma observação ou adicional?'],
+        say: ['Anotado: ' + pizzaName(state.current) + (state.current.borda ? ', borda de ' + state.current.borda : '') + '. Alguma observação?'],
         options: [
-          { label: 'Sem cebola', say: 'Sem cebola, por favor', go: 'added', action: commit('sem cebola') },
-          { label: 'Borda de catupiry (+R$ 9)', say: 'Pode colocar borda recheada de catupiry?', go: 'added', action: commit('borda de catupiry', 9) },
-          { label: 'Sem observações', say: 'Não, pode ser assim', go: 'added', action: commit('') }
+          { label: 'Sem cebola', say: 'Sem cebola, por favor', go: 'added', action: function () { commitPizza('sem cebola'); } },
+          { label: 'Bem assada', say: 'Pode deixar bem assada', go: 'added', action: function () { commitPizza('bem assada'); } },
+          { label: 'Sem observações', say: 'Não, pode ser assim', go: 'added', action: function () { commitPizza(''); } }
         ]
       };
     },
 
+    /* Hambúrgueres */
     burgerItem: function () {
       return {
         say: ['Temos X-Burger, X-Bacon e Smash Duplo. Qual vai ser?'],
         options: Object.keys(BURGERS).map(function (k) {
           return {
-            label: BURGERS[k].name,
+            label: BURGERS[k].name + ' · ' + brl(BURGERS[k].price),
             say: 'Me vê um ' + BURGERS[k].name,
-            go: 'burgerObs',
-            action: function () { state.current = { kind: 'burger', key: k }; }
+            go: 'burgerPonto',
+            action: function () { state.current = { kind: 'burger', key: k, combo: false }; }
           };
         })
       };
     },
 
-    burgerObs: function () {
-      var b = BURGERS[state.current.key];
-      function commit(obs, extra) {
-        return function () { state.cart.push({ name: b.name, obs: obs, price: b.price + (extra || 0) }); };
-      }
+    comboItem: function () {
       return {
-        say: ['Anotado: 1 ' + b.name + '. Quer tirar ou adicionar alguma coisa?'],
-        options: [
-          { label: 'Sem picles', say: 'Sem picles, por favor', go: 'added', action: commit('sem picles') },
-          { label: 'Bacon extra (+R$ 5)', say: 'Coloca bacon extra', go: 'added', action: commit('bacon extra', 5) },
-          { label: 'Assim mesmo', say: 'Pode mandar assim mesmo', go: 'added', action: commit('') }
-        ]
+        say: ['Nossos combos vêm com batata frita e refrigerante lata, por mais ' + brl(COMBO_PRICE) + ' no valor do lanche. Qual lanche vai no combo?'],
+        options: Object.keys(BURGERS).map(function (k) {
+          return {
+            label: 'Combo ' + BURGERS[k].name + ' · ' + brl(BURGERS[k].price + COMBO_PRICE),
+            say: 'Combo de ' + BURGERS[k].name,
+            go: 'burgerPonto',
+            action: function () { state.current = { kind: 'burger', key: k, combo: true }; }
+          };
+        })
       };
     },
 
+    burgerPonto: function () {
+      return {
+        say: ['Qual o ponto da carne?'],
+        options: ['mal passado', 'ao ponto', 'bem passado'].map(function (p) {
+          return {
+            label: p.charAt(0).toUpperCase() + p.slice(1),
+            say: p.charAt(0).toUpperCase() + p.slice(1) + ', por favor',
+            go: 'burgerExtras',
+            action: function () { state.current.ponto = p; }
+          };
+        })
+      };
+    },
+
+    burgerExtras: function () {
+      var next = function () { return state.current.combo ? 'comboDrink' : 'added'; };
+      var options = Object.keys(BURGER_EXTRAS).map(function (k) {
+        var ex = BURGER_EXTRAS[k];
+        return {
+          label: ex.label + ' (+' + brl(ex.price) + ')',
+          say: 'Coloca ' + ex.label.toLowerCase(),
+          go: next(),
+          action: function () { state.current.extra = ex; if (!state.current.combo) commitBurger(); }
+        };
+      });
+      options.push({
+        label: 'Sem picles', say: 'Tira o picles', go: next(),
+        action: function () { state.current.remove = 'sem picles'; if (!state.current.combo) commitBurger(); }
+      });
+      options.push({
+        label: 'Assim mesmo', say: 'Pode mandar assim mesmo', go: next(),
+        action: function () { if (!state.current.combo) commitBurger(); }
+      });
+      return { say: ['Quer adicionar ou tirar alguma coisa? Bacon extra é +' + brl(BURGER_EXTRAS.bacon.price) + ' e queijo extra +' + brl(BURGER_EXTRAS.queijo.price) + '.'], options: options };
+    },
+
+    comboDrink: function () {
+      return {
+        say: ['E o refrigerante do combo?'],
+        options: COMBO_DRINKS.map(function (d) {
+          return {
+            label: d,
+            say: d.replace(' lata', '') + ', lata',
+            go: 'added',
+            action: function () { state.current.drink = d; commitBurger(); }
+          };
+        })
+      };
+    },
+
+    /* Comum */
     added: function () {
       var last = state.cart[state.cart.length - 1];
       var options = [];
-      Object.keys(SIDES).forEach(function (k) {
-        var already = state.cart.some(function (it) { return it.name === SIDES[k].name; });
+      SEG.sides.forEach(function (k) {
+        var side = ALL_SIDES[k];
+        var already = state.cart.some(function (it) { return it.name === side.name; });
         if (already) return;
         options.push({
-          label: (k === 'coca2l' ? '🥤 ' : '🍟 ') + SIDES[k].name,
-          say: k === 'coca2l' ? 'Manda uma Coca 2L também' : 'Uma batata frita também',
+          label: side.icon + ' ' + side.name,
+          say: side.say,
           go: 'added',
-          action: function () { state.cart.push({ name: SIDES[k].name, obs: '', price: SIDES[k].price }); }
+          action: function () { state.cart.push({ name: side.name, obs: '', price: side.price }); }
         });
       });
       options.push({ label: '➕ Outro item', say: 'Quero mais um item', go: 'pickMore' });
       options.push({ label: '✔ Só isso', say: 'Só isso', go: 'fulfillment', primary: true });
       return {
-        say: ['Coloquei no pedido ✅\n' + itemLine(last) + '\n\nQuer adicionar mais alguma coisa?'],
+        say: ['Coloquei no pedido ✅\n' + itemLine(last) + ': ' + brl(last.price) + '\n\nQuer adicionar mais alguma coisa?'],
         options: options
       };
     },
 
     pickMore: function () {
-      return { say: ['Claro! Pizza ou hambúrguer?'], options: chooseCategoryOptions() };
+      return { say: [SEG.moreQuestion], options: SEG.more };
     },
 
     fulfillment: function () {
@@ -551,7 +731,7 @@
     },
 
     restartOrder: function () {
-      return { say: ['Sem problemas, vamos montar de novo. Pizza ou hambúrguer?'], options: chooseCategoryOptions() };
+      return { say: ['Sem problemas, vamos montar de novo. ' + SEG.moreQuestion.replace('Claro! ', '')], options: SEG.more };
     },
 
     done: function () {

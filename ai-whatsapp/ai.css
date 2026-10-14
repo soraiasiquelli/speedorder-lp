@@ -124,6 +124,8 @@
 .ai-link:hover .ico { transform: translateX(4px); }
 
 .ai-footnote { margin-top: 1.5rem; font-size: 0.82rem; color: var(--gray-500); text-align: center; }
+.ai-footnote a { color: var(--ai-blue-dark); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+.seg-card > .ai-link { margin-top: 1.1rem; }
 
 .tag {
   display: inline-flex;
