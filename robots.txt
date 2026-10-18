@@ -1,4 +1,36 @@
+# SpeedOrder: o conteúdo público do site pode ser lido por buscadores e por assistentes de IA.
 User-agent: *
+Allow: /
+
+# Rastreadores de IA permitidos de forma explícita
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
 Allow: /
 
 Sitemap: https://www.speedorder.com.br/sitemap.xml

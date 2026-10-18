@@ -1,0 +1,47 @@
+# SpeedOrder
+
+> SpeedOrder é um sistema brasileiro para restaurantes, pizzarias, hamburguerias, lanchonetes, bares, cafeterias, food trucks, confeitarias e marmitarias. Reúne cardápio digital com QR Code, tela da cozinha (KDS), caixa, mesas, entregas e o SpeedOrder AI, um atendente automático com inteligência artificial para o WhatsApp. Desenvolvido pela Pleiades Systems. Idioma: português do Brasil.
+
+## Planos (valores mensais, em reais)
+
+- Start, R$ 89: pedidos, cardápio digital, tela da cozinha e 1 usuário de equipe.
+- Speed, R$ 129: tudo do Start, mais mesas com QR Code, app do garçom, divisão de conta, caixa, equipe ilimitada, taxas de entrega e entregador.
+- Turbo, R$ 180 (gestão + IA): tudo do Speed, mais atendente automático com IA, cardápio e pedidos pelo WhatsApp, Pix automático e atendimento humano no inbox.
+- Full Speed, de R$ 249 a R$ 279: tudo do Turbo, mais integração com o iFood, maquininha PagBank e suporte prioritário.
+
+A IA no WhatsApp está disponível apenas nos planos Turbo e Full Speed.
+
+## SpeedOrder AI (IA no WhatsApp)
+
+- [SpeedOrder AI: atendimento automático no WhatsApp](https://www.speedorder.com.br/ai-whatsapp): o que é, demonstração interativa, planos e perguntas frequentes.
+- [IA para pizzaria no WhatsApp](https://www.speedorder.com.br/ai-whatsapp/pizzaria): meio a meio, borda, tamanho, entrega ou retirada.
+- [Robô de pedidos para hamburgueria](https://www.speedorder.com.br/ai-whatsapp/hamburgueria): adicionais, ponto da carne e combos.
+- [IA para confeitaria no WhatsApp](https://www.speedorder.com.br/ai-whatsapp/confeitaria): sabor, tamanho e mensagem do bolo.
+- [Robô de pedidos para marmitaria](https://www.speedorder.com.br/ai-whatsapp/marmitaria): tamanho, mistura do dia e trocas.
+
+## Sistema por segmento
+
+- [Sistema para restaurante](https://www.speedorder.com.br/restaurantes)
+- [Sistema para bar](https://www.speedorder.com.br/bares)
+- [Sistema para lanchonete](https://www.speedorder.com.br/lanchonetes)
+- [Software para fast food](https://www.speedorder.com.br/fast-food)
+- [Sistema para cafeteria](https://www.speedorder.com.br/cafeterias)
+- [Sistema para food truck](https://www.speedorder.com.br/food-trucks)
+
+## Blog
+
+- [Pix no WhatsApp para restaurante](https://www.speedorder.com.br/blog/pix-no-whatsapp-restaurante)
+- [Quanto custa um sistema para restaurante e delivery](https://www.speedorder.com.br/blog/quanto-custa-sistema-para-restaurante-delivery)
+- [Chatbot ou IA no WhatsApp do restaurante](https://www.speedorder.com.br/blog/chatbot-whatsapp-restaurante-robo-de-botoes-ou-ia)
+- [Como vender bolo e doces pelo WhatsApp](https://www.speedorder.com.br/blog/vender-bolo-e-doces-pelo-whatsapp)
+- [Marmitaria: pedidos do almoço pelo WhatsApp](https://www.speedorder.com.br/blog/marmitaria-pedidos-whatsapp-almoco)
+- [Como automatizar o atendimento do restaurante no WhatsApp com IA](https://www.speedorder.com.br/blog/atendimento-whatsapp-ia-restaurante)
+- [Cardápio digital com QR Code: como funciona e quanto custa implantar](https://www.speedorder.com.br/blog/cardapio-digital-qr-code-como-funciona)
+- [Como reduzir filas e aumentar o giro de mesas](https://www.speedorder.com.br/blog/como-reduzir-filas-e-aumentar-giro-de-mesas)
+
+## Contato
+
+- E-mail: contato@speedorder.com.br
+- WhatsApp: (11) 94400-7513
+- Política de privacidade: https://www.speedorder.com.br/privacidade
+- Termos de uso: https://www.speedorder.com.br/termos

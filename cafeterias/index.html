@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <!-- ============================================================
+       META BÁSICO — SpeedOrder para cafeterias
+       Rota: /cafeterias
+       Página gerada no padrão de /bares (mesmo tema em /bares/bar.css).
+  ============================================================ -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistema para Cafeteria com Cardápio Digital | SpeedOrder</title>
+  <meta name="description" content="Venda mais cafés sem fila no balcão: cardápio digital QR Code, pedido na mesa, KDS e PDV para cafeteria. Teste 35 dias grátis com instalação inclusa.">
+  <meta name="keywords" content="sistema para cafeteria, cardápio digital cafeteria, cardápio QR Code cafeteria, PDV cafeteria, sistema de pedidos cafeteria, software para cafeteria">
+  <meta name="author" content="SpeedOrder">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+  <meta name="theme-color" content="#120E0B">
+  <link rel="canonical" href="https://www.speedorder.com.br/cafeterias">
+
+  <!-- ============================================================
+       OPEN GRAPH / TWITTER
+  ============================================================ -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="SpeedOrder">
+  <meta property="og:title" content="Sistema para cafeteria: pedido da mesa, bebida certa e balcão sem fila">
+  <meta property="og:description" content="Cardápio digital com QR Code, variações de bebida, KDS no preparo e PDV para cafeterias. Teste 35 dias grátis.">
+  <meta property="og:url" content="https://www.speedorder.com.br/cafeterias">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:image" content="https://www.speedorder.com.br/assets/og-cafeterias.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="SpeedOrder para cafeterias: cardápio digital com QR Code na mesa da cafeteria">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Sistema para cafeteria: pedido da mesa, bebida certa e balcão sem fila">
+  <meta name="twitter:description" content="Cardápio digital com QR Code, variações de bebida, KDS no preparo e PDV para cafeterias. Teste 35 dias grátis.">
+  <meta name="twitter:image" content="https://www.speedorder.com.br/assets/og-cafeterias.png">
+
+  <!-- ============================================================
+       FAVICON / FONTES / ESTILOS
+  ============================================================ -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='%23FFC861'/><stop offset='1' stop-color='%23E2603A'/></linearGradient></defs><rect width='32' height='32' rx='8' fill='url(%23g)'/><path d='M10 22 L18 22 L18 18 L22 18 L14 10 L14 14 L10 14 Z' fill='%23120E0B'/></svg>">
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="dns-prefetch" href="https://formspree.io">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,800&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/bares/bar.css">
+  <script>document.documentElement.classList.add('js');</script>
+
+  <!-- ============================================================
+       SCHEMA.ORG
+  ============================================================ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "url": "https://www.speedorder.com.br/cafeterias",
+        "name": "Sistema para Cafeteria com Cardápio Digital | SpeedOrder",
+        "description": "Venda mais cafés sem fila no balcão: cardápio digital QR Code, pedido na mesa, KDS e PDV para cafeteria. Teste 35 dias grátis com instalação inclusa.",
+        "inLanguage": "pt-BR",
+        "isPartOf": {
+          "@type": "WebSite",
+          "name": "SpeedOrder",
+          "url": "https://www.speedorder.com.br/"
+        }
+      },
+      {
+        "@type": "SoftwareApplication",
+        "name": "SpeedOrder para cafeterias",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web",
+        "url": "https://www.speedorder.com.br/cafeterias",
+        "inLanguage": "pt-BR",
+        "description": "Sistema para cafeteria com cardápio digital por QR Code, pedido na mesa e no balcão, variações de bebida, KDS no preparo, PDV, controle de caixa, estoque e cupons por horário.",
+        "provider": {
+          "@type": "Organization",
+          "name": "Pleiades Systems",
+          "url": "https://www.pleiadessystems.com.br"
+        },
+        "offers": {
+          "@type": "Offer",
+          "description": "35 dias grátis para conhecer. Depois, mensalidade em proposta personalizada. Implantação feita pela equipe do SpeedOrder.",
+          "availability": "https://schema.org/InStock",
+          "url": "https://www.speedorder.com.br/cafeterias#comecar"
+        },
+        "featureList": [
+          "Cardápio digital com QR Code",
+          "Variações de bebida no pedido",
+          "Pedido na mesa e no balcão",
+          "KDS (painel de preparo)",
+          "PDV e controle de caixa",
+          "Pagamento online por Pix e cartão",
+          "Cupons por horário",
+          "Controle de estoque"
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Início",
+            "item": "https://www.speedorder.com.br/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Sistema para cafeteria",
+            "item": "https://www.speedorder.com.br/cafeterias"
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "O cliente precisa baixar um app para ver o cardápio?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Não. O cardápio digital abre no navegador assim que o cliente aponta a câmera para o QR Code da mesa ou do balcão."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Consigo cadastrar as variações das bebidas?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Sim. Tamanhos, tipos de leite e outras variações são cadastrados no cardápio, e a escolha do cliente aparece no pedido que chega ao preparo."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "O cliente da mesa pode pedir mais de uma vez?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Pode. Cada pedido feito pelo QR Code entra na comanda da mesa, e o pagamento pode ser feito pelo cardápio ou no PDV."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Dá para fazer promoção só no meio da tarde?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Dá. Os cupons de desconto podem valer por horário, produto ou categoria."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Preciso instalar algum programa?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Não. O SpeedOrder funciona no navegador de computador, tablet ou celular, e a configuração inicial é feita pela nossa equipe."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Quanto custa?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Você tem 35 dias grátis para conhecer o SpeedOrder na sua cafeteria. Depois, o valor é definido em proposta personalizada, conforme o tamanho e o tipo da casa."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="page-bar" data-segment="cafeteria">
+
+  <!-- ============================================================
+       ÍCONES
+  ============================================================ -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+      <symbol id="b-qr" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3v3h-3zM20.5 14v.01M14 20.5h.01M17 20.5h3.5V17"/></symbol>
+      <symbol id="b-beer" viewBox="0 0 24 24"><path d="M5 8h11v11a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2z"/><path d="M16 10h2a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2h-2"/><path d="M5 8a3 3 0 0 1 3.5-4A3.2 3.2 0 0 1 14 4a2.6 2.6 0 0 1 2 4"/><path d="M9 12v5M12 12v5"/></symbol>
+      <symbol id="b-cocktail" viewBox="0 0 24 24"><path d="M4 4h16l-8 9z"/><path d="M12 13v7M8 20h8M7.5 8h9"/></symbol>
+      <symbol id="b-food" viewBox="0 0 24 24"><path d="M3 2v7a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2V2M7 2v20M21 15V2a5 5 0 0 0-5 5v6a2 2 0 0 0 2 2h3zm0 0v7"/></symbol>
+      <symbol id="b-receipt" viewBox="0 0 24 24"><path d="M5 2h14v20l-3-2-2 2-2-2-2 2-2-2-3 2z"/><path d="M9 7h6M9 11h6M9 15h4"/></symbol>
+      <symbol id="b-users" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/></symbol>
+      <symbol id="b-card" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20M6 15h4"/></symbol>
+      <symbol id="b-register" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V5h10v6M10 8h4M7 15h2M11 15h2M15 15h2M7 18h10"/></symbol>
+      <symbol id="b-box" viewBox="0 0 24 24"><path d="M21 8 12 3 3 8v8l9 5 9-5z"/><path d="m3 8 9 5 9-5M12 13v8"/></symbol>
+      <symbol id="b-chart" viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="m7 15 4-4 3 3 5-6"/></symbol>
+      <symbol id="b-percent" viewBox="0 0 24 24"><path d="M19 5 5 19"/><circle cx="6.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></symbol>
+      <symbol id="b-phone" viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M11 18h2"/></symbol>
+      <symbol id="b-flame" viewBox="0 0 24 24"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.4-.5-2-1-3-1.1-2.1-.2-4 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.2.4-2.3 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></symbol>
+      <symbol id="b-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.5"/><path d="M12 7v5l3.5 2"/></symbol>
+      <symbol id="b-alert" viewBox="0 0 24 24"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><path d="M12 9v4M12 17h.01"/></symbol>
+      <symbol id="b-shuffle" viewBox="0 0 24 24"><path d="M16 3h5v5M4 20 21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></symbol>
+      <symbol id="b-message" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M8 9h8M8 13h5"/></symbol>
+      <symbol id="b-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+      <symbol id="b-arrow" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></symbol>
+      <symbol id="b-play" viewBox="0 0 24 24"><path d="M7 4.5v15l12-7.5z"/></symbol>
+      <symbol id="b-refresh" viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 15.5-6.3L21 8M21 3v5h-5M21 12a9 9 0 0 1-15.5 6.3L3 16M3 21v-5h5"/></symbol>
+      <symbol id="b-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></symbol>
+      <symbol id="b-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+      <symbol id="b-minus" viewBox="0 0 24 24"><path d="M5 12h14"/></symbol>
+      <symbol id="b-whatsapp" viewBox="0 0 24 24"><path d="M3.5 20.5 5 16.3A8.5 8.5 0 1 1 8 19.2z"/><path d="M9 8.8c0 3 2.6 5.8 5.8 6.2l1.2-1.3-1.7-1-1 .8c-1-.4-2.3-1.6-2.7-2.7l.8-1-1-1.7z"/></symbol>
+      <symbol id="b-coffee" viewBox="0 0 24 24"><path d="M4 8h13v6a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5z"/><path d="M17 10h1.5a2.5 2.5 0 0 1 0 5H17M8 2.5v2.5M12 2.5v2.5"/></symbol>
+      <symbol id="b-truck" viewBox="0 0 24 24"><path d="M2 6h12v10H2zM14 9h4l3 3.5V16h-7z"/><circle cx="6.5" cy="17.5" r="1.8"/><circle cx="17" cy="17.5" r="1.8"/></symbol>
+      <symbol id="b-burger" viewBox="0 0 24 24"><path d="M4 11h16a8 8 0 0 0-16 0z"/><path d="M2.5 14.5h19"/><path d="M4 17.5h16v.5a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3z"/></symbol>
+      <symbol id="b-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></symbol>
+      <symbol id="b-store" viewBox="0 0 24 24"><path d="M3 9 4.5 4h15L21 9M3 9v11h18V9M3 9h18M9 20v-6h6v6"/></symbol>
+    </defs>
+  </svg>
+
+  <a class="skip-link" href="#conteudo-principal">Pular para o conteúdo principal</a>
+
+  <header class="navbar bar-nav">
+    <div class="container navbar__inner">
+      <a href="https://www.speedorder.com.br/" class="navbar__logo bar-logo" aria-label="SpeedOrder — página inicial">
+        <img src="/assets/logo_speedorder-sm.png" alt="SpeedOrder" class="navbar__logo-img" width="40" height="34">
+        <span class="bar-logo__badge">Cafeterias</span>
+      </a>
+      <nav class="navbar__nav" aria-label="Navegação principal">
+        <ul class="navbar__links">
+          <li><a href="#como-funciona">Como funciona</a></li>
+          <li><a href="#funcionalidades">Funcionalidades</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li class="nav-drop">
+            <button type="button" class="nav-drop__btn">Segmentos<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+            <div class="nav-drop__panel">
+              <div>
+                <p class="nav-drop__title">Sistema por segmento</p>
+                <ul>
+                  <li><a href="/restaurantes">Sistema para restaurante</a></li>
+                  <li><a href="/bares">Sistema para bar</a></li>
+                  <li><a href="/lanchonetes">Sistema para lanchonete</a></li>
+                  <li><a href="/fast-food">Software para fast food</a></li>
+                  <li><a href="/cafeterias">Sistema para cafeteria</a></li>
+                  <li><a href="/food-trucks">Sistema para food truck</a></li>
+                </ul>
+              </div>
+              <div>
+                <p class="nav-drop__title">SpeedOrder AI no WhatsApp</p>
+                <ul>
+                  <li><a href="/ai-whatsapp">Atendimento automático no WhatsApp</a></li>
+                  <li><a href="/ai-whatsapp/pizzaria">IA para pizzaria no WhatsApp</a></li>
+                  <li><a href="/ai-whatsapp/hamburgueria">Robô de pedidos para hamburgueria</a></li>
+                  <li><a href="/ai-whatsapp/confeitaria">IA para confeitaria no WhatsApp</a></li>
+                  <li><a href="/ai-whatsapp/marmitaria">Robô de pedidos para marmitaria</a></li>
+                </ul>
+              </div>
+            </div>
+          </li>
+          <li><a href="/blog">Blog</a></li>
+        </ul>
+      </nav>
+      <div class="navbar__actions">
+        <a href="#comecar" class="btn btn--primary btn--sm" data-track="cta_click" data-cta="nav_comecar">Falar com a gente</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="conteudo-principal">
+
+    <!-- ============================================================
+         1. HERO
+    ============================================================ -->
+    <section class="bar-hero" id="topo" aria-labelledby="hero-titulo">
+      <div class="bar-hero__glow" aria-hidden="true"></div>
+      <div class="container bar-hero__inner">
+        <div class="bar-hero__content">
+          <p class="bar-pill"><span class="bar-pill__dot" aria-hidden="true"></span>Sistema para cafeteria · Cardápio digital · QR Code</p>
+          <h1 id="hero-titulo" class="bar-hero__title">
+            Sistema para cafeteria: <em>o cliente pede da mesa</em> e o barista recebe certo.
+          </h1>
+          <p class="bar-hero__subtitle">
+            Leite vegetal, sem açúcar, tamanho grande, com uma fatia de bolo. Com o SpeedOrder, o cliente pede pelo cardápio digital no celular, as variações chegam escritas ao preparo e o balcão fica livre para quem está com pressa.
+          </p>
+          <div class="bar-hero__actions">
+            <a href="#como-funciona" class="btn btn--primary btn--lg" data-track="cta_click" data-cta="hero_como_funciona">
+              <svg class="ico ico--fill" aria-hidden="true"><use href="#b-play"/></svg>Ver como funciona
+            </a>
+            <a href="#comecar" class="btn btn--ghost-light btn--lg" data-track="cta_click" data-cta="hero_testar">Testar 35 dias grátis</a>
+          </div>
+          <ul class="bar-hero__proof">
+            <li><svg class="ico" aria-hidden="true"><use href="#b-check"/></svg>35 dias grátis</li>
+            <li><svg class="ico" aria-hidden="true"><use href="#b-check"/></svg>Cardápio digital sem baixar app</li>
+            <li><svg class="ico" aria-hidden="true"><use href="#b-check"/></svg>Variações de cada bebida</li>
+            <li><svg class="ico" aria-hidden="true"><use href="#b-check"/></svg>Instalação feita pela nossa equipe</li>
+          </ul>
+        </div>
+
+        <div class="bar-hero__visual" role="img" aria-label="Ilustração: um cartão de mesa com QR Code ao lado de um celular com o cardápio digital da cafeteria; avisos mostram o pedido enviado ao preparo e a conta paga pelo celular">
+          <div class="tent" aria-hidden="true">
+            <p class="tent__table">Mesa 3</p>
+            <div class="tent__qr" id="hero-qr"></div>
+            <p class="tent__hint">Peça mais um café sem levantar</p>
+          </div>
+
+          <div class="menu-phone menu-phone--hero" aria-hidden="true">
+            <div class="menu-phone__notch"></div>
+            <div class="menu-phone__screen">
+              <div class="qm-head">
+                <span class="qm-head__brand">Café Grão Fino</span>
+                <span class="qm-head__table">Mesa 3</span>
+              </div>
+              <div class="qm-tabs"><span class="is-active">Cafés</span><span>Bebidas geladas</span><span>Doces</span></div>
+              <ul class="qm-list">
+                <li><span><strong>Cappuccino</strong><small>R$ 14,00</small></span><b class="qm-qty">1</b></li>
+                <li><span><strong>Latte com leite de aveia</strong><small>R$ 17,00</small></span><b class="qm-qty">1</b></li>
+                <li><span><strong>Pão de queijo</strong><small>R$ 8,00</small></span><b class="qm-qty">2</b></li>
+                <li><span><strong>Fatia de bolo</strong><small>R$ 15,00</small></span><b class="qm-add">+</b></li>
+              </ul>
+              <div class="qm-send">Enviar · 4 itens · R$ 47,00</div>
+            </div>
+          </div>
+
+          <div class="bar-float bar-float--ticket" aria-hidden="true">
+            <span class="bar-float__icon"><svg class="ico"><use href="#b-flame"/></svg></span>
+            <span><strong>Pedido da Mesa 3</strong><small>no painel do barista</small></span>
+          </div>
+          <div class="bar-float bar-float--bill" aria-hidden="true">
+            <span class="bar-float__icon"><svg class="ico"><use href="#b-card"/></svg></span>
+            <span><strong>Pago pelo celular</strong><small>Pix ou cartão</small></span>
+          </div>
+        </div>
+      </div>
+      <p class="container bar-hero__disclaimer">Cardápio e valores ilustrativos.</p>
+    </section>
+
+    <!-- ============================================================
+         2. PROBLEMAS
+    ============================================================ -->
+    <section class="bar-section bar-problems" aria-labelledby="problemas-titulo">
+      <div class="container">
+        <div class="bar-heading reveal">
+          <p class="bar-eyebrow">O problema</p>
+          <h2 id="problemas-titulo" class="bar-title">O que atrapalha a rotina de uma cafeteria</h2>
+          <p class="bar-lead">Cafeteria tem dois públicos ao mesmo tempo: quem quer um café para levar em dois minutos e quem vai passar a tarde na mesa. Atender os dois bem é o desafio.</p>
+        </div>
+        <ul class="pain-grid">
+          <li class="pain reveal">
+            <span class="pain__icon"><svg class="ico" aria-hidden="true"><use href="#b-users"/></svg></span>
+            <h3>Fila de quem está com pressa</h3>
+            <p>O cliente do café para viagem espera atrás de quem está escolhendo entre seis tipos de bebida.</p>
+          </li>
+          <li class="pain reveal">
+            <span class="pain__icon"><svg class="ico" aria-hidden="true"><use href="#b-coffee"/></svg></span>
+            <h3>Variação esquecida</h3>
+            <p>Leite de aveia, sem açúcar, extra shot: no balcão barulhento, um detalhe se perde e a bebida é refeita.</p>
+          </li>
+          <li class="pain reveal">
+            <span class="pain__icon"><svg class="ico" aria-hidden="true"><use href="#b-clock"/></svg></span>
+            <h3>Cliente da mesa sem atendimento</h3>
+            <p>Quem está trabalhando no notebook quer mais um café, mas não quer perder o lugar para ir ao balcão.</p>
+          </li>
+          <li class="pain reveal">
+            <span class="pain__icon"><svg class="ico" aria-hidden="true"><use href="#b-receipt"/></svg></span>
+            <h3>Cardápio difícil de atualizar</h3>
+            <p>Bebida sazonal, doce do dia, preço novo: o quadro-negro nunca acompanha.</p>
+          </li>
+          <li class="pain reveal">
+            <span class="pain__icon"><svg class="ico" aria-hidden="true"><use href="#b-percent"/></svg></span>
+            <h3>Tarde vazia</h3>
+            <p>A manhã lota e o meio da tarde fica parado, sem uma forma simples de criar promoção de horário.</p>
+          </li>
+          <li class="pain reveal">
+            <span class="pain__icon"><svg class="ico" aria-hidden="true"><use href="#b-box"/></svg></span>
+            <h3>Insumo que acaba</h3>
+            <p>Leite vegetal ou o grão especial acabam no meio do dia sem aviso.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         3. COMO O SPEEDORDER RESOLVE
+    ============================================================ -->
+    <section class="bar-section" id="solucao" aria-labelledby="solucao-titulo">
+      <div class="container">
+        <div class="bar-heading reveal">
+          <p class="bar-eyebrow">A solução</p>
+          <h2 id="solucao-titulo" class="bar-title">Como o SpeedOrder organiza a cafeteria</h2>
+          <p class="bar-lead">Pedido certo para o barista, balcão livre e cliente da mesa atendido sem levantar.</p>
+        </div>
+        <ul class="solve-list">
+          <li class="solve reveal">
+            <p class="solve__pain">Fila de quem está com pressa</p>
+            <h3>Quem pode pedir da mesa, pede da mesa</h3>
+            <p>Com o QR Code em cada mesa, quem vai ficar mais tempo pede pelo celular. O balcão fica para quem quer o café para levar, e a fila anda mais rápido.</p>
+            <p class="solve__tool"><svg class="ico" aria-hidden="true"><use href="#b-check"/></svg>Cardápio digital com QR Code</p>
+          </li>
+          <li class="solve reveal">
+            <p class="solve__pain">Variação esquecida</p>
+            <h3>Cada detalhe escrito no pedido</h3>
+            <p>As variações cadastradas no cardápio, como tipo de leite e tamanho, são escolhidas pelo próprio cliente e aparecem no KDS do preparo.</p>
+            <p class="solve__tool"><svg class="ico" aria-hidden="true"><use href="#b-check"/></svg>KDS (painel de preparo)</p>
+          </li>
+          <li class="solve reveal">
+            <p class="solve__pain">Cliente da mesa</p>
+            <h3>Mais um café sem perder o lugar</h3>
+            <p>O cliente que está trabalhando ou conversando pede de novo pelo celular. O pedido entra na comanda da mesa e o pagamento pode ser feito pelo próprio cardápio.</p>
+            <p class="solve__tool"><svg class="ico" aria-hidden="true"><use href="#b-check"/></svg>Comanda da mesa e pagamento online</p>
+          </li>
+          <li class="solve reveal">
+            <p class="solve__pain">Cardápio desatualizado</p>
+            <h3>Bebida sazonal no ar em minutos</h3>
+            <p>Você atualiza item, foto ou preço no SpeedOrder e o cardápio digital mostra a novidade na hora.</p>
+            <p class="solve__tool"><svg class="ico" aria-hidden="true"><use href="#b-check"/></svg>Cardápio integrado</p>
+          </li>
+          <li class="solve reveal">
+            <p class="solve__pain">Tarde vazia</p>
+            <h3>Cupom por horário</h3>
+            <p>Crie um desconto válido só no meio da tarde, para um produto ou uma categoria, e deixe o sistema aplicar a regra.</p>
+            <p class="solve__tool"><svg class="ico" aria-hidden="true"><use href="#b-check"/></svg>Cupons de desconto</p>
+          </li>
+          <li class="solve reveal">
+            <p class="solve__pain">Insumo que acaba</p>
+            <h3>Estoque com alerta</h3>
+            <p>Cada venda baixa os insumos e o sistema avisa quando é hora de repor.</p>
+            <p class="solve__tool"><svg class="ico" aria-hidden="true"><use href="#b-check"/></svg>Controle de estoque</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         4. COMO FUNCIONA
+    ============================================================ -->
+    <section class="bar-section bar-night" id="como-funciona" aria-labelledby="como-titulo">
+      <div class="container">
+        <div class="bar-heading reveal">
+          <p class="bar-eyebrow">Como funciona</p>
+          <h2 id="como-titulo" class="bar-title">Como funciona o SpeedOrder na sua cafeteria</h2>
+          <p class="bar-lead">Você conta como a casa funciona. A configuração fica com a nossa equipe.</p>
+        </div>
+        <ol class="night">
+          <li class="night__step reveal">
+            <span class="night__time">01</span>
+            <div><h3>Entendemos a sua cafeteria</h3><p>Balcão, mesas, café para viagem e quais bebidas têm mais variações.</p></div>
+          </li>
+          <li class="night__step reveal">
+            <span class="night__time">02</span>
+            <div><h3>Cardápio digital com variações</h3><p>Bebidas, tamanhos, tipos de leite, doces e salgados com foto e preço.</p></div>
+          </li>
+          <li class="night__step reveal">
+            <span class="night__time">03</span>
+            <div><h3>QR Codes nas mesas e no balcão</h3><p>Códigos prontos para imprimir e colocar onde o cliente vê.</p></div>
+          </li>
+          <li class="night__step reveal">
+            <span class="night__time">04</span>
+            <div><h3>Pedido direto para o barista</h3><p>Da mesa, do balcão ou do WhatsApp, tudo na mesma fila do KDS.</p></div>
+          </li>
+          <li class="night__step reveal">
+            <span class="night__time">05</span>
+            <div><h3>Números do dia</h3><p>Mais vendidos, ticket médio e horário de pico para planejar a equipe e o estoque.</p></div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         5. FUNCIONALIDADES
+    ============================================================ -->
+    <section class="bar-section bar-features" id="funcionalidades" aria-labelledby="func-titulo">
+      <div class="container">
+        <div class="bar-heading reveal">
+          <p class="bar-eyebrow">Funcionalidades</p>
+          <h2 id="func-titulo" class="bar-title">Recursos para cafeteria de bairro, de shopping ou de coworking</h2>
+        </div>
+        <ul class="feat-grid">
+          <li class="feat feat--wide reveal">
+            <span class="feat__icon"><svg class="ico" aria-hidden="true"><use href="#b-qr"/></svg></span>
+            <h3>Cardápio digital para cafeteria</h3>
+            <p>Fotos das bebidas e dos doces, variações claras e pedido enviado do celular do cliente, sem instalar nada. Ideal para quem passa a tarde na mesa e pede mais de uma vez.</p>
+          </li>
+          <li class="feat reveal">
+            <span class="feat__icon"><svg class="ico" aria-hidden="true"><use href="#b-coffee"/></svg></span>
+            <h3>Variações de bebida</h3>
+            <p>Tamanho, tipo de leite e outras opções que você cadastrar.</p>
+          </li>
+          <li class="feat reveal">
+            <span class="feat__icon"><svg class="ico" aria-hidden="true"><use href="#b-flame"/></svg></span>
+            <h3>KDS no preparo</h3>
+            <p>Fila de pedidos organizada para o barista.</p>
+          </li>
+          <li class="feat reveal">
+            <span class="feat__icon"><svg class="ico" aria-hidden="true"><use href="#b-register"/></svg></span>
+            <h3>PDV no balcão</h3>
+            <p>Venda rápida integrada ao caixa e ao estoque.</p>
+          </li>
+          <li class="feat reveal">
+            <span class="feat__icon"><svg class="ico" aria-hidden="true"><use href="#b-card"/></svg></span>
+            <h3>Pagamento online</h3>
+            <p>O cliente da mesa paga o café por Pix, cartão ou carteira digital.</p>
+          </li>
+          <li class="feat reveal">
+            <span class="feat__icon"><svg class="ico" aria-hidden="true"><use href="#b-percent"/></svg></span>
+            <h3>Cupons por horário</h3>
+            <p>Promoção para o meio da tarde ou para dias fracos.</p>
+          </li>
+          <li class="feat reveal">
+            <span class="feat__icon"><svg class="ico" aria-hidden="true"><use href="#b-box"/></svg></span>
+            <h3>Estoque</h3>
+            <p>Leite, grãos e insumos com alerta de reposição.</p>
+          </li>
+          <li class="feat reveal">
+            <span class="feat__icon"><svg class="ico" aria-hidden="true"><use href="#b-chart"/></svg></span>
+            <h3>Relatórios</h3>
+            <p>O que mais vende e em que horário.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         6. GUIA DO SEGMENTO (texto)
+    ============================================================ -->
+    <section class="bar-section bar-problems" id="guia" aria-labelledby="guia-titulo">
+      <div class="container">
+        <div class="seg-prose reveal">
+          <p class="bar-eyebrow">Guia rápido</p>
+          <h2 id="guia-titulo" class="bar-title">Cardápio digital na cafeteria: na prática</h2>
+          <p>Numa cafeteria, o cardápio digital não substitui o barista nem o atendimento caloroso do balcão. Ele tira do caminho as tarefas repetitivas: dizer o preço, repetir as opções de leite, anotar a variação e lembrar qual mesa pediu o quê. Assim, quem está atrás do balcão pode se dedicar ao preparo e à conversa com o cliente.</p>
+          <h3>Mesas com clientes de longa permanência</h3>
+          <p>Cafeterias com tomadas e Wi-Fi recebem gente que fica horas. Esse cliente pede mais de uma vez, mas só se for fácil. Com o QR Code na mesa, o segundo e o terceiro café são pedidos pelo celular e entram na mesma comanda.</p>
+          <h3>Café para viagem</h3>
+          <p>Para o cliente apressado, o caminho continua sendo o balcão, agora mais livre. O pedido lançado no PDV vai para o mesmo KDS, e o barista prepara na ordem de chegada.</p>
+          <h3>Cardápio que muda com a estação</h3>
+          <p>Bebida gelada no verão, chocolate quente no inverno, doce especial no fim de semana: com o cardápio digital, a novidade entra no ar assim que você cadastra. Entenda os detalhes no guia <a href="/blog/cardapio-digital-qr-code-como-funciona">cardápio digital com QR Code: como funciona</a>.</p>
+          <h3>Encomendas pelo WhatsApp</h3>
+          <p>Se a cafeteria recebe pedidos de entrega pelo WhatsApp, a <a href="/ai-whatsapp">SpeedOrder AI</a> pode atender essas conversas e mandar o pedido confirmado para o preparo, enquanto a equipe cuida de quem está na loja.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         7. 35 DIAS GRÁTIS / CONTRATAÇÃO
+    ============================================================ -->
+    <section class="bar-section bar-plans" id="planos" aria-labelledby="planos-titulo">
+      <div class="container">
+        <div class="bar-heading bar-heading--center reveal">
+          <p class="bar-eyebrow">35 dias grátis</p>
+          <h2 id="planos-titulo" class="bar-title">Teste 35 dias na sua cafeteria, com a gente instalando tudo.</h2>
+          <p class="bar-lead">Depois do teste, o valor é definido em proposta personalizada, conforme o movimento e o número de mesas. Você recebe tudo por escrito antes de decidir.</p>
+        </div>
+
+        <div class="offer">
+          <article class="offer__card reveal">
+            <p class="offer__label">SpeedOrder para cafeterias</p>
+            <p class="offer__big"><span>35</span> dias grátis</p>
+            <p class="offer__after">Depois: mensalidade calculada pelo número de mesas e pelo movimento da cafeteria</p>
+            <ul class="offer__list">
+              <li><svg class="ico" aria-hidden="true"><use href="#b-check"/></svg>Cardápio digital com QR Code</li>
+              <li><svg class="ico" aria-hidden="true"><use href="#b-check"/></svg>Variações de bebida</li>
+              <li><svg class="ico" aria-hidden="true"><use href="#b-check"/></svg>KDS para o preparo</li>
+              <li><svg class="ico" aria-hidden="true"><use href="#b-check"/></svg>PDV, caixa e estoque</li>
+              <li><svg class="ico" aria-hidden="true"><use href="#b-check"/></svg>Cupons e relatórios</li>
+              <li><svg class="ico" aria-hidden="true"><use href="#b-check"/></svg>Implantação feita pela nossa equipe</li>
+            </ul>
+            <a href="#comecar" class="btn btn--primary btn--lg btn--full" data-track="cta_click" data-cta="planos_testar">Quero testar 35 dias grátis</a>
+            <a href="https://wa.me/5511944007513?text=Ol%C3%A1!%20Tenho%20uma%20cafeteria%20e%20quero%20testar%20o%20SpeedOrder%20por%2035%20dias." class="offer__alt" target="_blank" rel="noopener noreferrer" data-track="whatsapp_click" data-cta="planos_whatsapp">ou fale com a gente pelo WhatsApp</a>
+          </article>
+
+          <aside class="offer__steps reveal" aria-labelledby="comeca-titulo">
+            <h3 id="comeca-titulo">Como começa</h3>
+            <ol>
+              <li><span>1</span><div><strong>Você conta como a cafeteria funciona</strong><p>Balcão, mesas, café para viagem e delivery.</p></div></li>
+              <li><span>2</span><div><strong>Nós configuramos tudo</strong><p>Cardápio com variações, QR Codes e cadastro da equipe.</p></div></li>
+              <li><span>3</span><div><strong>Sua cafeteria roda 35 dias com o SpeedOrder</strong><p>Conferimos com o barista os primeiros pedidos vindos das mesas.</p></div></li>
+              <li><span>4</span><div><strong>Você decide se continua</strong><p>Valores e itens inclusos descritos de forma clara, antes de qualquer compromisso.</p></div></li>
+            </ol>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         8. FAQ
+    ============================================================ -->
+    <section class="bar-section bar-faq" id="faq" aria-labelledby="faq-titulo">
+      <div class="container container--narrow">
+        <div class="bar-heading reveal">
+          <p class="bar-eyebrow">Perguntas frequentes</p>
+          <h2 id="faq-titulo" class="bar-title">Dúvidas de quem tem cafeteria</h2>
+        </div>
+        <div class="faq__list">
+          <details class="faq-item" open>
+            <summary><h3>O cliente precisa baixar um app para ver o cardápio?</h3></summary>
+            <div class="faq-item__answer">Não. O cardápio digital abre no navegador assim que o cliente aponta a câmera para o QR Code da mesa ou do balcão.</div>
+          </details>
+          <details class="faq-item">
+            <summary><h3>Consigo cadastrar as variações das bebidas?</h3></summary>
+            <div class="faq-item__answer">Sim. Tamanhos, tipos de leite e outras variações são cadastrados no cardápio, e a escolha do cliente aparece no pedido que chega ao preparo.</div>
+          </details>
+          <details class="faq-item">
+            <summary><h3>O cliente da mesa pode pedir mais de uma vez?</h3></summary>
+            <div class="faq-item__answer">Pode. Cada pedido feito pelo QR Code entra na comanda da mesa, e o pagamento pode ser feito pelo cardápio ou no PDV.</div>
+          </details>
+          <details class="faq-item">
+            <summary><h3>Dá para fazer promoção só no meio da tarde?</h3></summary>
+            <div class="faq-item__answer">Dá. Os cupons de desconto podem valer por horário, produto ou categoria.</div>
+          </details>
+          <details class="faq-item">
+            <summary><h3>Preciso instalar algum programa?</h3></summary>
+            <div class="faq-item__answer">Não. O SpeedOrder funciona no navegador de computador, tablet ou celular, e a configuração inicial é feita pela nossa equipe.</div>
+          </details>
+          <details class="faq-item">
+            <summary><h3>Quanto custa?</h3></summary>
+            <div class="faq-item__answer">Você tem 35 dias grátis para conhecer o SpeedOrder na sua cafeteria. Depois, o valor é definido em proposta personalizada, conforme o tamanho e o tipo da casa.</div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         VEJA TAMBÉM (links internos)
+    ============================================================ -->
+    <section class="see-also bar-section" aria-labelledby="veja-tambem-titulo">
+      <div class="container">
+        <h2 id="veja-tambem-titulo" class="see-also__title">Veja também</h2>
+        <div class="see-also__grid">
+          <a class="see-also__card" href="/restaurantes"><strong>Sistema para restaurante</strong><span>Salão, cozinha e caixa integrados com pedido pela mesa.</span></a>
+          <a class="see-also__card" href="/lanchonetes"><strong>Sistema para lanchonete</strong><span>Fila andando no balcão e lanche certo na chapa.</span></a>
+          <a class="see-also__card" href="/blog/cardapio-digital-qr-code-como-funciona"><strong>Cardápio digital com QR Code</strong><span>Guia completo: do QR Code na mesa à tela do barista.</span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         9. CTA FINAL + FORMULÁRIO
+    ============================================================ -->
+    <section class="final-cta bar-final" id="comecar" aria-labelledby="cta-titulo">
+      <div class="container final-cta__inner">
+        <p class="bar-eyebrow">35 dias grátis</p>
+        <h2 id="cta-titulo" class="final-cta__title">Mais tempo para o café, menos tempo anotando pedido.</h2>
+        <p class="final-cta__subtitle">Deixe seu contato. Um especialista entende como a sua cafeteria funciona, mostra o SpeedOrder rodando e prepara o teste de 35 dias.</p>
+
+        <div class="bar-final__actions">
+          <a href="#como-funciona" class="btn btn--ghost-light btn--lg" data-track="cta_click" data-cta="final_como_funciona"><svg class="ico ico--fill" aria-hidden="true"><use href="#b-play"/></svg>Ver como funciona</a>
+          <a href="#lead-nome" class="btn btn--primary btn--lg" data-track="cta_click" data-cta="final_comecar" data-focus="lead-nome">Começar agora</a>
+        </div>
+
+        <form class="lead-form" id="lead-form" action="https://formspree.io/f/xrewrnqw" method="POST" aria-label="Formulário de contato do SpeedOrder para cafeterias">
+          <div class="lead-form__row">
+            <div class="lead-form__field">
+              <label for="lead-nome">Seu nome</label>
+              <input type="text" id="lead-nome" name="nome" placeholder="Como podemos te chamar?" required autocomplete="name">
+            </div>
+            <div class="lead-form__field">
+              <label for="lead-estabelecimento">Nome da cafeteria</label>
+              <input type="text" id="lead-estabelecimento" name="estabelecimento" placeholder="Ex: Café Grão Fino" required autocomplete="organization">
+            </div>
+          </div>
+          <div class="lead-form__row">
+            <div class="lead-form__field">
+              <label for="lead-whatsapp">WhatsApp</label>
+              <input type="tel" id="lead-whatsapp" name="whatsapp" placeholder="(11) 90000-0000" required autocomplete="tel">
+            </div>
+            <div class="lead-form__field">
+              <label for="lead-email">E-mail</label>
+              <input type="email" id="lead-email" name="email" placeholder="voce@exemplo.com" required autocomplete="email">
+            </div>
+          </div>
+          <fieldset class="lead-form__type">
+            <legend>Tipo de estabelecimento</legend>
+            <div class="lead-form__type-options">
+              <label class="lead-form__type-option"><input type="radio" name="tipo_estabelecimento" value="Cafeteria" checked required><span>Cafeteria</span></label>
+              <label class="lead-form__type-option"><input type="radio" name="tipo_estabelecimento" value="Padaria"><span>Padaria</span></label>
+              <label class="lead-form__type-option"><input type="radio" name="tipo_estabelecimento" value="Confeitaria"><span>Confeitaria</span></label>
+              <label class="lead-form__type-option"><input type="radio" name="tipo_estabelecimento" value="Lanchonete"><span>Lanchonete</span></label>
+              <label class="lead-form__type-option"><input type="radio" name="tipo_estabelecimento" value="Restaurante"><span>Restaurante</span></label>
+              <label class="lead-form__type-option"><input type="radio" name="tipo_estabelecimento" value="Outro"><span>Outro</span></label>
+            </div>
+          </fieldset>
+          <input type="hidden" name="_subject" value="Novo lead — SpeedOrder para cafeterias (35 dias grátis)">
+          <input type="hidden" name="produto" value="SpeedOrder para cafeterias">
+          <input type="hidden" name="segmento" value="Cafeteria">
+          <input type="hidden" name="pagina" value="/cafeterias">
+          <input type="hidden" name="utm_source" value="">
+          <input type="hidden" name="utm_medium" value="">
+          <input type="hidden" name="utm_campaign" value="">
+          <input type="hidden" name="utm_content" value="">
+          <input type="hidden" name="utm_term" value="">
+          <button type="submit" class="btn btn--primary btn--lg lead-form__submit">Quero testar 35 dias grátis</button>
+          <p class="lead-form__privacy">Seus dados são usados só para entrarmos em contato. Veja a <a href="/privacidade">Política de Privacidade</a>.</p>
+        </form>
+
+        <div class="lead-form__divider"><span>ou</span></div>
+        <a href="https://wa.me/5511944007513?text=Ol%C3%A1!%20Tenho%20uma%20cafeteria%20e%20quero%20testar%20o%20SpeedOrder%20por%2035%20dias." class="btn btn--ghost-light btn--lg" target="_blank" rel="noopener noreferrer" data-track="whatsapp_click" data-cta="final_whatsapp">
+          <svg class="ico" aria-hidden="true"><use href="#b-whatsapp"/></svg>Falar agora no WhatsApp
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer bar-footer" id="contato">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <a href="https://www.speedorder.com.br/" class="navbar__logo" aria-label="SpeedOrder — página inicial">
+          <img src="/assets/logo_speedorder-sm.png" alt="Logo SpeedOrder" class="navbar__logo-img navbar__logo-img--footer" width="35" height="30">
+        </a>
+        <p>SpeedOrder para cafeterias: cardápio digital com QR Code, variações de bebida, KDS no preparo e PDV.</p>
+        <p class="footer__contact">
+          <a href="mailto:contato@speedorder.com.br">contato@speedorder.com.br</a><br>
+          <a href="https://wa.me/5511944007513" target="_blank" rel="noopener noreferrer" data-track="whatsapp_click" data-cta="footer_whatsapp">(11) 94400-7513 · WhatsApp</a>
+        </p>
+      </div>
+      <nav class="footer__nav" aria-label="Links do rodapé">
+        <div class="footer__col">
+          <h3>Sistema por segmento</h3>
+          <ul>
+            <li><a href="/restaurantes">Sistema para restaurante</a></li>
+            <li><a href="/bares">Sistema para bar</a></li>
+            <li><a href="/lanchonetes">Sistema para lanchonete</a></li>
+            <li><a href="/fast-food">Software para fast food</a></li>
+            <li><a href="/cafeterias">Sistema para cafeteria</a></li>
+            <li><a href="/food-trucks">Sistema para food truck</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h3>SpeedOrder AI</h3>
+          <ul>
+            <li><a href="/ai-whatsapp">Atendimento automático no WhatsApp</a></li>
+            <li><a href="/ai-whatsapp/pizzaria">IA para pizzaria no WhatsApp</a></li>
+            <li><a href="/ai-whatsapp/hamburgueria">Robô de pedidos para hamburgueria</a></li>
+            <li><a href="/ai-whatsapp/confeitaria">IA para confeitaria no WhatsApp</a></li>
+            <li><a href="/ai-whatsapp/marmitaria">Robô de pedidos para marmitaria</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h3>SpeedOrder</h3>
+          <ul>
+            <li><a href="/">Cardápio digital, PDV e KDS</a></li>
+            <li><a href="/blog">Blog</a></li>
+            <li><a href="#comecar">Contato</a></li>
+            <li><a href="/privacidade">Política de Privacidade</a></li>
+            <li><a href="/termos">Termos de Uso</a></li>
+            <li><button type="button" class="footer__link-btn" data-consent-open>Preferências de cookies</button></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <div class="container footer__bottom">
+      <p>© 2026 SpeedOrder. Todos os direitos reservados.</p>
+      <p>Desenvolvido por <a href="https://www.pleiadessystems.com.br" target="_blank" rel="noopener noreferrer">Pleiades Systems</a></p>
+    </div>
+  </footer>
+
+  <a
+    href="https://wa.me/5511944007513?text=Ol%C3%A1!%20Tenho%20uma%20cafeteria%20e%20quero%20testar%20o%20SpeedOrder%20por%2035%20dias."
+    class="whatsapp-float"
+    data-track="whatsapp_click"
+    data-cta="float_whatsapp"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Falar com o SpeedOrder pelo WhatsApp"
+  >
+    <svg viewBox="0 0 32 32" width="28" height="28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M16.02 3C9.4 3 4 8.37 4 14.98c0 2.2.6 4.26 1.63 6.03L3 29l8.2-2.55a12.9 12.9 0 0 0 4.82.93h.01C22.63 27.38 28 22.02 28 15.4 28 8.79 22.63 3 16.02 3Z" fill="#25D366"/>
+      <path d="M22.02 19.1c-.34.94-1.69 1.72-2.74 1.94-.72.15-1.66.28-4.84-1.04-3.62-1.5-5.99-5.13-6.17-5.37-.18-.24-1.47-1.96-1.47-3.74 0-1.78.93-2.65 1.27-3.01.34-.36.73-.44 .97-.44.24 0 .49 0 .7.01.23.01.53-.09.83.63.34.82 1.14 2.85 1.24 3.06.1.21.16.45.03.72-.13.27-.2.44-.4.68-.2.24-.42.53-.6.71-.2.2-.41.42-.18.82.24.4 1.05 1.73 2.26 2.8 1.55 1.38 2.86 1.81 3.29 2.01.43.2.68.17.93-.1.25-.28 1.08-1.26 1.37-1.69.29-.43.58-.36.97-.22.4.15 2.5 1.18 2.93 1.39.43.22.72.32.83.5.11.18.11 1.02-.23 1.96Z" fill="#FFFFFF"/>
+    </svg>
+    <span class="sr-only">Falar no WhatsApp</span>
+  </a>
+
+  <div class="consent" id="consent" role="dialog" aria-modal="false" aria-labelledby="consent-titulo" hidden>
+    <div class="consent__text">
+      <p id="consent-titulo" class="consent__title">Cookies de medição</p>
+      <p>Com a sua permissão, usamos cookies do Google Analytics e, quando ativado, do Meta Pixel para medir visitas e a eficácia dos nossos anúncios. Você pode mudar isso a qualquer momento no rodapé. <a href="/privacidade">Política de Privacidade</a>.</p>
+    </div>
+    <div class="consent__actions">
+      <button type="button" class="btn btn--ghost-light btn--sm" data-consent="denied">Recusar</button>
+      <button type="button" class="btn btn--primary btn--sm" data-consent="granted">Aceitar</button>
+    </div>
+  </div>
+
+  <script src="/ai-whatsapp/ai.js" defer></script>
+  <script src="/bares/bar.js" defer></script>
+</body>
+</html>

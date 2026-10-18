@@ -326,6 +326,110 @@ button:focus-visible {
 .navbar__actions { display: flex; align-items: center; gap: 0.5rem; }
 .navbar__login { color: var(--gray-700); }
 
+/* Menu "Segmentos" — abre no hover e no foco (Tab), sem JavaScript.
+   Os links ficam no HTML para os buscadores. Painel sempre claro para
+   funcionar sobre navbars claras (home, blog) e escuras (bares, AI). */
+.nav-drop { position: relative; }
+.nav-drop__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+.nav-drop__btn svg { width: 12px; height: 12px; fill: none; stroke: currentColor; stroke-width: 2.4; transition: transform var(--transition-fast); }
+.nav-drop:hover .nav-drop__btn svg,
+.nav-drop:focus-within .nav-drop__btn svg { transform: rotate(180deg); }
+.nav-drop__panel {
+  position: absolute;
+  top: calc(100% + 14px);
+  left: 50%;
+  z-index: 120;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+  width: 520px;
+  padding: 1.25rem 1.4rem;
+  border-radius: var(--radius-md);
+  background: #FFFFFF;
+  border: 1px solid #E7E7E9;
+  box-shadow: 0 24px 48px rgba(11, 11, 12, 0.16);
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, 6px);
+  transition: opacity var(--transition-fast), transform var(--transition-fast);
+}
+.nav-drop__panel::before { content: ""; position: absolute; left: 0; right: 0; top: -16px; height: 16px; }
+.nav-drop:hover .nav-drop__panel,
+.nav-drop:focus-within .nav-drop__panel { opacity: 1; pointer-events: auto; transform: translate(-50%, 0); }
+.nav-drop__title {
+  margin-bottom: 0.6rem;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #7A7A80 !important;
+}
+.nav-drop__panel ul { display: grid; gap: 0.15rem; }
+.navbar__links .nav-drop__panel a {
+  display: block;
+  padding: 0.4rem 0.55rem;
+  margin-inline: -0.55rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.88rem;
+  color: #17171A;
+}
+.navbar__links .nav-drop__panel a:hover { background: #F4F4F5; color: #0B0B0C; }
+.navbar__links .nav-drop__panel a::after { display: none; }
+
+/* ==================================================================
+   CONSENTIMENTO DE COOKIES (LGPD) — base para todas as páginas.
+   /ai-whatsapp/ai.css e /bares/bar.css ajustam as cores do tema.
+================================================================== */
+.footer__link-btn { font-size: 0.9rem; color: var(--gray-300); padding: 0; text-align: left; }
+.footer__link-btn:hover { color: var(--color-white); }
+.consent {
+  position: fixed;
+  left: 1.5rem;
+  bottom: 1.5rem;
+  z-index: 300;
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  max-width: 640px;
+  padding: 1.1rem 1.25rem;
+  border-radius: var(--radius-md);
+  background: var(--color-white);
+  border: 1px solid var(--gray-200);
+  box-shadow: var(--shadow-lg);
+}
+.consent[hidden] { display: none; }
+.consent__title { font-weight: 700; font-size: 0.92rem; }
+.consent__text p:not(.consent__title) { margin-top: 0.25rem; font-size: 0.82rem; line-height: 1.5; color: var(--gray-700); }
+.consent__text a { text-decoration: underline; }
+.consent__actions { display: flex; gap: 0.5rem; flex-shrink: 0; }
+@media (max-width: 640px) {
+  .consent { left: 1rem; right: 1rem; flex-direction: column; align-items: stretch; }
+}
+
+/* Bloco "Veja também" (páginas de segmento, AI e blog) */
+.see-also { padding-block: clamp(3rem, 6vw, 4.5rem); }
+.see-also__title { font-size: clamp(1.4rem, 2.4vw, 1.8rem); }
+.see-also__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
+.see-also__card {
+  display: block;
+  padding: 1.25rem 1.35rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--gray-200);
+  background: var(--gray-50);
+  transition: border-color var(--transition-fast), transform var(--transition-fast);
+}
+.see-also__card:hover { border-color: var(--color-red); transform: translateY(-2px); }
+.see-also__card strong { display: block; font-size: 1rem; color: var(--color-black); }
+.see-also__card span { display: block; margin-top: 0.35rem; font-size: 0.88rem; color: var(--gray-700); }
+
 /* ==================================================================
    8. HERO
 ================================================================== */

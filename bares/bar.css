@@ -881,6 +881,33 @@
 /* ==================================================================
    13. MEDIA QUERIES
 ================================================================== */
+/* ==================================================================
+   PÁGINAS DE SEGMENTO (/restaurantes, /lanchonetes, /fast-food,
+   /cafeterias, /food-trucks) — mesmo tema, blocos extras
+================================================================== */
+.solve-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+.solve {
+  padding: 1.6rem;
+  border-radius: var(--radius-lg);
+  background: var(--bar-card);
+  border: 1px solid var(--bar-line);
+}
+.solve__pain { font-family: var(--font-mono); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--bar-copper) !important; }
+.solve h3 { margin-top: 0.5rem; font-family: var(--font-serif); font-size: 1.3rem; }
+.solve p { margin-top: 0.6rem; font-size: 0.95rem; }
+.solve__tool { display: inline-flex; align-items: center; gap: 0.4rem; margin-top: 0.9rem; font-size: 0.8rem; font-weight: 600; color: var(--bar-amber-2); }
+.solve__tool a { text-decoration: underline; text-underline-offset: 3px; }
+
+.seg-prose { max-width: 760px; }
+.seg-prose h3 { margin-top: 2rem; font-family: var(--font-serif); font-size: 1.35rem; }
+.seg-prose p { margin-top: 0.85rem; font-size: 1.02rem; line-height: 1.7; }
+.seg-prose a { color: var(--bar-amber-2); text-decoration: underline; text-underline-offset: 3px; }
+.offer__big--text { font-size: 2.2rem; }
+
+@media (max-width: 760px) {
+  .solve-list { grid-template-columns: 1fr; }
+}
+
 @media (max-width: 1080px) {
   .bar-demo__grid { grid-template-columns: 1fr; max-width: 640px; margin-inline: auto; }
   .night { grid-template-columns: repeat(2, 1fr); }

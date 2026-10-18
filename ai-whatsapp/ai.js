@@ -1,5 +1,5 @@
 /* ==================================================================
-   SPEED ORDER AI — /ai-whatsapp (+ /pizzaria e /hamburgueria)
+   SPEEDORDER AI — /ai-whatsapp (+ /pizzaria, /hamburgueria, /confeitaria e /marmitaria)
    1. Configuração de rastreamento
    2. Consentimento (LGPD) + carregamento de GA4 / Meta Pixel
    3. Eventos de clique e conversão
@@ -8,7 +8,7 @@
    6. Demonstração interativa (simulação local, sem API da Meta)
 
    O segmento da página vem de <body data-segment="...">:
-   "pizzaria", "hamburgueria" ou ausente (página geral).
+   "pizzaria", "hamburgueria", "confeitaria", "marmitaria" ou ausente (página geral).
 ================================================================== */
 (function () {
   'use strict';
@@ -213,11 +213,36 @@
   var COMBO_PRICE = 16; // batata frita + refrigerante lata
   var COMBO_DRINKS = ['Coca-Cola lata', 'Guaraná lata'];
 
+  var CAKES = {
+    ninho: { name: 'Ninho com Morango', price: { P: 89, M: 139, G: 199 } },
+    chocolate: { name: 'Chocolate com Brigadeiro', price: { P: 79, M: 129, G: 189 } },
+    redvelvet: { name: 'Red Velvet', price: { P: 95, M: 149, G: 209 } }
+  };
+  var CAKE_SIZE = { P: 'Pequeno (8 fatias)', M: 'Médio (15 fatias)', G: 'Grande (25 fatias)' };
+  var CAKE_SIZE_SHORT = { P: 'Pequeno', M: 'Médio', G: 'Grande' };
+  var CAKE_MESSAGES = ['Parabéns, Ana!', 'Feliz Aniversário!'];
+  var SWEETS = {
+    brigadeiro: { name: 'Brigadeiro gourmet (cento)', price: 140 },
+    cupcake: { name: 'Cupcakes (caixa com 6)', price: 54 },
+    torta: { name: 'Torta de limão (inteira)', price: 85 }
+  };
+
+  var MEAL_SIZES = {
+    P: { label: 'Pequena', price: 21.9 },
+    M: { label: 'Média', price: 26.9 },
+    G: { label: 'Grande', price: 31.9 }
+  };
+  var MEAL_MIXES = ['Frango grelhado', 'Bife acebolado', 'Strogonoff de carne'];
+
   var ALL_SIDES = {
     coca2l: { name: 'Coca-Cola 2L', price: 14, icon: '🥤', say: 'Manda uma Coca 2L também' },
     guarana2l: { name: 'Guaraná 2L', price: 12, icon: '🥤', say: 'Põe um Guaraná 2L' },
     batata: { name: 'Batata frita', price: 18, icon: '🍟', say: 'Uma batata frita também' },
-    cocalata: { name: 'Coca-Cola lata', price: 7, icon: '🥤', say: 'E uma Coca lata' }
+    cocalata: { name: 'Coca-Cola lata', price: 7, icon: '🥤', say: 'E uma Coca lata' },
+    brigadeiros6: { name: 'Caixa com 6 brigadeiros', price: 24, icon: '🍫', say: 'Quero uma caixa de brigadeiros também' },
+    vela: { name: 'Vela de aniversário', price: 5, icon: '🕯️', say: 'Coloca uma vela também' },
+    suco: { name: 'Suco 500ml', price: 8, icon: '🧃', say: 'Um suco também' },
+    pudim: { name: 'Pudim individual', price: 9, icon: '🍮', say: 'Quero um pudim também' }
   };
 
   var SIZE_LABEL = { G: 'Grande', M: 'Média' };
@@ -272,6 +297,36 @@
         { label: '🍟 Combo', say: 'Mais um combo', go: 'comboItem' }
       ],
       moreQuestion: 'Claro! Lanche avulso ou combo?'
+    },
+    confeitaria: {
+      store: 'Confeitaria Demo',
+      sides: ['brigadeiros6', 'vela'],
+      menu: ['cakes', 'sweets'],
+      start: [
+        { label: '🎂 Pedir um bolo', say: 'Oi! Quero pedir um bolo', go: 'cakeFlavor' },
+        { label: '🧁 Doces e tortas', say: 'Quero ver os doces e as tortas', go: 'sweetItem' },
+        { label: '📋 Ver o cardápio', say: 'Me manda o cardápio?', go: 'menu' },
+        { label: '👤 Bolo sob medida', say: 'Quero um bolo diferente, sob medida', go: 'human' }
+      ],
+      more: [
+        { label: '🎂 Bolo', say: 'Mais um bolo', go: 'cakeFlavor' },
+        { label: '🧁 Doces e tortas', say: 'Mais doces', go: 'sweetItem' }
+      ],
+      moreQuestion: 'Claro! Bolo ou doces e tortas?'
+    },
+    marmitaria: {
+      store: 'Marmitaria Demo',
+      sides: ['suco', 'pudim'],
+      menu: ['meals'],
+      start: [
+        { label: '🍱 Pedir uma marmita', say: 'Oi! Quero pedir uma marmita', go: 'mealSize' },
+        { label: '📋 Prato do dia', say: 'O que tem de prato do dia?', go: 'menu' },
+        { label: '👤 Falar com atendente', say: 'Prefiro falar com uma pessoa', go: 'human' }
+      ],
+      more: [
+        { label: '🍱 Outra marmita', say: 'Mais uma marmita', go: 'mealSize' }
+      ],
+      moreQuestion: 'Claro! Vai ser mais uma marmita?'
     }
   };
   var SEG = SEGMENTS[SEGMENT] || SEGMENTS.geral;
@@ -482,6 +537,62 @@
     state.cart.push({ name: (cur.combo ? 'Combo ' : '') + b.name, obs: notes.join(' · '), price: price });
   }
 
+  function commitCake(msg) {
+    var cur = state.current;
+    state.cart.push({
+      name: 'Bolo ' + CAKE_SIZE_SHORT[cur.size] + ' ' + CAKES[cur.key].name,
+      obs: msg ? 'mensagem: ' + msg : '',
+      price: CAKES[cur.key].price[cur.size]
+    });
+  }
+  function commitMeal(obs) {
+    var cur = state.current;
+    state.cart.push({
+      name: 'Marmita ' + MEAL_SIZES[cur.size].label + ' ' + cur.mix,
+      obs: obs,
+      price: MEAL_SIZES[cur.size].price
+    });
+  }
+
+  /* QR Code ilustrativo (não é um código de pagamento real) */
+  function fakeQrSvg() {
+    var n = 21;
+    var seed = 7;
+    var modules = '';
+    function inFinder(x, y) { return (x < 8 && y < 8) || (x > n - 9 && y < 8) || (x < 8 && y > n - 9); }
+    function finder(ox, oy) {
+      return '<rect x="' + ox + '" y="' + oy + '" width="7" height="7" fill="#111"/>' +
+        '<rect x="' + (ox + 1) + '" y="' + (oy + 1) + '" width="5" height="5" fill="#fff"/>' +
+        '<rect x="' + (ox + 2) + '" y="' + (oy + 2) + '" width="3" height="3" fill="#111"/>';
+    }
+    for (var y = 0; y < n; y++) {
+      for (var x = 0; x < n; x++) {
+        if (inFinder(x, y)) continue;
+        seed = (seed * 1103515245 + 12345) & 0x7fffffff;
+        if ((seed >> 16) & 1) modules += 'M' + x + ' ' + y + 'h1v1h-1z';
+      }
+    }
+    return '<svg viewBox="0 0 21 21" shape-rendering="crispEdges" role="img" aria-label="QR Code do Pix ilustrativo">' +
+      '<path d="' + modules + '" fill="#111"/>' + finder(0, 0) + finder(n - 7, 0) + finder(0, n - 7) + '</svg>';
+  }
+  function addPixCard(total) {
+    var card = el('div', 'pix-card');
+    var qr = el('div', 'pix-card__qr');
+    qr.innerHTML = fakeQrSvg();
+    card.appendChild(qr);
+    card.appendChild(el('span', 'pix-card__value', 'Pix · ' + brl(total)));
+    card.appendChild(el('span', 'pix-card__code', 'Pix copia e cola: 00020126…demo5204'));
+    card.appendChild(el('span', 'pix-card__tag', 'QR Code ilustrativo · simulação'));
+    if (!reducedMotion) card.style.animation = 'bubbleIn .35s cubic-bezier(.22,1,.36,1) both';
+    chat.appendChild(card);
+    scrollChat();
+  }
+  function markPaid() {
+    var t = ticketsEl.querySelector('.ticket--new');
+    if (t) t.appendChild(el('p', 'ticket__foot', 'Pix pago ✓ · ' + brl(subtotal() + state.fee)));
+    track('demo_pix_paid');
+  }
+
   function restartOption() {
     return { label: '🔄 Recomeçar simulação', go: 'start', action: resetState, primary: true };
   }
@@ -507,7 +618,24 @@
           return '• ' + BURGERS[k].name + ': ' + brl(BURGERS[k].price);
         }).join('\n') + (SEGMENT === 'hamburgueria' ? '\nCombo (batata + refri lata): +' + brl(COMBO_PRICE) : ''));
       }
-      parts.push('🥤 ' + (SEGMENT === 'hamburgueria' ? 'ACOMPANHAMENTOS' : SEGMENT === 'pizzaria' ? 'BEBIDAS' : 'ACOMPANHAMENTOS') + '\n' +
+      if (SEG.menu.indexOf('cakes') !== -1) {
+        parts.push('🎂 BOLOS (pequeno / médio / grande)\n' + Object.keys(CAKES).map(function (k) {
+          var p = CAKES[k].price;
+          return '• ' + CAKES[k].name + ': ' + brl(p.P) + ' / ' + brl(p.M) + ' / ' + brl(p.G);
+        }).join('\n') + '\nMensagem no bolo: é só me dizer o que escrever');
+      }
+      if (SEG.menu.indexOf('sweets') !== -1) {
+        parts.push('🧁 DOCES E TORTAS\n' + Object.keys(SWEETS).map(function (k) {
+          return '• ' + SWEETS[k].name + ': ' + brl(SWEETS[k].price);
+        }).join('\n'));
+      }
+      if (SEG.menu.indexOf('meals') !== -1) {
+        parts.push('🍱 MARMITAS DO DIA\n' + Object.keys(MEAL_SIZES).map(function (k) {
+          return '• ' + MEAL_SIZES[k].label + ': ' + brl(MEAL_SIZES[k].price);
+        }).join('\n') + '\n\nMisturas de hoje:\n' + MEAL_MIXES.map(function (m) { return '• ' + m; }).join('\n'));
+      }
+      var sidesLabel = { hamburgueria: 'ACOMPANHAMENTOS', pizzaria: 'BEBIDAS', confeitaria: 'EXTRAS', marmitaria: 'BEBIDA E SOBREMESA' }[SEGMENT] || 'ACOMPANHAMENTOS';
+      parts.push('🥤 ' + sidesLabel + '\n' +
         SEG.sides.map(function (k) { return '• ' + ALL_SIDES[k].name + ': ' + brl(ALL_SIDES[k].price); }).join('\n'));
       return {
         say: [parts.join('\n\n'), 'É só me dizer o que vai querer 😉'],
@@ -666,6 +794,108 @@
       };
     },
 
+    /* Confeitaria */
+    cakeFlavor: function () {
+      return {
+        say: ['Ótimo! Os bolos de hoje: Ninho com Morango, Chocolate com Brigadeiro e Red Velvet. Qual sabor?'],
+        options: Object.keys(CAKES).map(function (k) {
+          return {
+            label: CAKES[k].name,
+            say: 'De ' + CAKES[k].name.toLowerCase(),
+            go: 'cakeSize',
+            action: function () { state.current = { kind: 'cake', key: k }; }
+          };
+        })
+      };
+    },
+
+    cakeSize: function () {
+      var cake = CAKES[state.current.key];
+      return {
+        say: ['O bolo ' + cake.name + ' sai por ' + brl(cake.price.P) + ' (pequeno), ' + brl(cake.price.M) + ' (médio) ou ' + brl(cake.price.G) + ' (grande). Qual tamanho?'],
+        options: ['M', 'G', 'P'].map(function (size) {
+          return {
+            label: CAKE_SIZE[size] + ' · ' + brl(cake.price[size]),
+            say: 'O ' + CAKE_SIZE_SHORT[size].toLowerCase() + ', por favor',
+            go: 'cakeMsg',
+            action: function () { state.current.size = size; }
+          };
+        })
+      };
+    },
+
+    cakeMsg: function () {
+      var cur = state.current;
+      var options = CAKE_MESSAGES.map(function (msg) {
+        return {
+          label: '“' + msg + '”',
+          say: 'Escreve "' + msg + '"',
+          go: 'added',
+          action: function () { commitCake(msg); }
+        };
+      });
+      options.push({ label: 'Sem mensagem', say: 'Não precisa de mensagem', go: 'added', action: function () { commitCake(''); } });
+      return {
+        say: ['Anotado: bolo ' + CAKES[cur.key].name + ' ' + CAKE_SIZE_SHORT[cur.size].toLowerCase() + '. Quer escrever alguma mensagem no bolo?'],
+        options: options
+      };
+    },
+
+    sweetItem: function () {
+      return {
+        say: ['Temos brigadeiro gourmet, cupcakes e torta de limão. O que vai ser?'],
+        options: Object.keys(SWEETS).map(function (k) {
+          return {
+            label: SWEETS[k].name + ' · ' + brl(SWEETS[k].price),
+            say: 'Quero ' + SWEETS[k].name.toLowerCase(),
+            go: 'added',
+            action: function () { state.cart.push({ name: SWEETS[k].name, obs: '', price: SWEETS[k].price }); }
+          };
+        })
+      };
+    },
+
+    /* Marmitaria */
+    mealSize: function () {
+      return {
+        say: ['Boa tarde! Qual o tamanho da marmita? Pequena ' + brl(MEAL_SIZES.P.price) + ', média ' + brl(MEAL_SIZES.M.price) + ' ou grande ' + brl(MEAL_SIZES.G.price) + '.'],
+        options: ['M', 'G', 'P'].map(function (size) {
+          return {
+            label: MEAL_SIZES[size].label + ' · ' + brl(MEAL_SIZES[size].price),
+            say: 'A ' + MEAL_SIZES[size].label.toLowerCase() + ', por favor',
+            go: 'mealMix',
+            action: function () { state.current = { kind: 'meal', size: size }; }
+          };
+        })
+      };
+    },
+
+    mealMix: function () {
+      return {
+        say: ['Hoje a mistura é frango grelhado, bife acebolado ou strogonoff de carne. Qual vai ser?'],
+        options: MEAL_MIXES.map(function (mix) {
+          return {
+            label: mix,
+            say: 'De ' + mix.toLowerCase(),
+            go: 'mealObs',
+            action: function () { state.current.mix = mix; }
+          };
+        })
+      };
+    },
+
+    mealObs: function () {
+      var cur = state.current;
+      return {
+        say: ['Anotado: marmita ' + MEAL_SIZES[cur.size].label.toLowerCase() + ' de ' + cur.mix.toLowerCase() + '. Quer tirar ou trocar alguma coisa?'],
+        options: [
+          { label: 'Sem salada', say: 'Sem salada, por favor', go: 'added', action: function () { commitMeal('sem salada'); } },
+          { label: 'Sem feijão', say: 'Pode tirar o feijão', go: 'added', action: function () { commitMeal('sem feijão'); } },
+          { label: 'Do jeito que vem', say: 'Do jeito que vem mesmo', go: 'added', action: function () { commitMeal(''); } }
+        ]
+      };
+    },
+
     /* Comum */
     added: function () {
       var last = state.cart[state.cart.length - 1];
@@ -737,11 +967,42 @@
     done: function () {
       var number = '#0' + orderSeq;
       return {
-        say: ['Pedido ' + number + ' confirmado e enviado para a cozinha ✅\nObrigado pela preferência!'],
+        say: ['Pedido ' + number + ' confirmado e enviado para a cozinha ✅\nQuer pagar agora? Eu gero o Pix com QR Code aqui na conversa.'],
         after: function () {
           sendToKitchen();
           addNote('📟 Pedido ' + number + ' apareceu no painel da cozinha (simulação)');
         },
+        options: [
+          { label: '💸 Pagar com Pix agora', say: 'Quero pagar com Pix', go: 'pix', primary: true },
+          { label: 'Pagar ao receber', say: 'Pago na hora de receber', go: 'payLater' }
+        ]
+      };
+    },
+
+    pix: function () {
+      var total = subtotal() + state.fee;
+      track('demo_pix_start');
+      return {
+        say: ['Aqui está o Pix no valor de ' + brl(total) + '. É só escanear o QR Code ou copiar o código 👇'],
+        after: function () { addPixCard(total); },
+        options: [{ label: '✅ Simular o pagamento', say: 'Pronto, paguei!', go: 'paid', primary: true }]
+      };
+    },
+
+    paid: function () {
+      return {
+        say: ['Pagamento recebido ✅ Obrigado! O pedido já está com a cozinha.'],
+        after: function () {
+          markPaid();
+          addNote('💸 Pagamento por Pix registrado no pedido (simulação)');
+        },
+        options: [restartOption()]
+      };
+    },
+
+    payLater: function () {
+      return {
+        say: ['Combinado! O pagamento fica para a hora de receber. Obrigado pela preferência! 😊'],
         options: [restartOption()]
       };
     },

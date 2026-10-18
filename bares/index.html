@@ -8,7 +8,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sistema para Bar com Cardápio QR Code e Comanda Digital | SpeedOrder</title>
-  <meta name="description" content="Sistema para bares: cardápio digital com QR Code na mesa, comanda digital, app do garçom, KDS e caixa com divisão de conta. Mais rodadas, menos espera. Instalação feita pela nossa equipe.">
+  <meta name="description" content="Mais rodadas e menos espera: cardápio QR Code na mesa, comanda digital, app do garçom, KDS e conta dividida. Teste 35 dias grátis com instalação inclusa.">
   <meta name="keywords" content="sistema para bar, cardápio digital QR Code bar, comanda digital, sistema de comandas para bar, app do garçom, PDV para bar, divisão de conta, sistema para choperia, sistema para pub, controle de caixa bar">
   <meta name="author" content="SpeedOrder">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
@@ -21,7 +21,7 @@
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="SpeedOrder">
   <meta property="og:title" content="SpeedOrder para bares — mais rodadas, menos espera">
-  <meta property="og:description" content="Cardápio QR Code na mesa, comanda digital, app do garçom, KDS e conta dividida em segundos.">
+  <meta property="og:description" content="Mais rodadas e menos espera: cardápio QR Code na mesa, comanda digital, app do garçom, KDS e conta dividida em segundos.">
   <meta property="og:url" content="https://www.speedorder.com.br/bares">
   <meta property="og:locale" content="pt_BR">
   <meta property="og:image" content="https://www.speedorder.com.br/assets/og-bares.png">
@@ -37,6 +37,8 @@
        FAVICON / FONTES / ESTILOS
   ============================================================ -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='%23FFC861'/><stop offset='1' stop-color='%23E2603A'/></linearGradient></defs><rect width='32' height='32' rx='8' fill='url(%23g)'/><path d='M10 22 L18 22 L18 18 L22 18 L14 10 L14 14 L10 14 Z' fill='%23120E0B'/></svg>">
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="dns-prefetch" href="https://formspree.io">
@@ -162,16 +164,41 @@
   <header class="navbar bar-nav">
     <div class="container navbar__inner">
       <a href="https://www.speedorder.com.br/" class="navbar__logo bar-logo" aria-label="SpeedOrder — página inicial">
-        <img src="/assets/logo_speedorder.png" alt="SpeedOrder" class="navbar__logo-img" width="140" height="34">
+        <img src="/assets/logo_speedorder-sm.png" alt="SpeedOrder" class="navbar__logo-img" width="40" height="34">
         <span class="bar-logo__badge">Bares</span>
       </a>
       <nav class="navbar__nav" aria-label="Navegação da página">
         <ul class="navbar__links">
           <li><a href="#demonstracao">Demonstração</a></li>
-          <li><a href="#uma-noite">Uma noite no bar</a></li>
           <li><a href="#funcionalidades">Funcionalidades</a></li>
-          <li><a href="#planos">35 dias grátis</a></li>
           <li><a href="#faq">FAQ</a></li>
+          <li class="nav-drop">
+            <button type="button" class="nav-drop__btn">Segmentos<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+            <div class="nav-drop__panel">
+              <div>
+                <p class="nav-drop__title">Sistema por segmento</p>
+                <ul>
+                  <li><a href="/restaurantes">Sistema para restaurante</a></li>
+                  <li><a href="/bares">Sistema para bar</a></li>
+                  <li><a href="/lanchonetes">Sistema para lanchonete</a></li>
+                  <li><a href="/fast-food">Software para fast food</a></li>
+                  <li><a href="/cafeterias">Sistema para cafeteria</a></li>
+                  <li><a href="/food-trucks">Sistema para food truck</a></li>
+                </ul>
+              </div>
+              <div>
+                <p class="nav-drop__title">SpeedOrder AI no WhatsApp</p>
+                <ul>
+                  <li><a href="/ai-whatsapp">Atendimento automático no WhatsApp</a></li>
+                  <li><a href="/ai-whatsapp/pizzaria">IA para pizzaria no WhatsApp</a></li>
+                  <li><a href="/ai-whatsapp/hamburgueria">Robô de pedidos para hamburgueria</a></li>
+                  <li><a href="/ai-whatsapp/confeitaria">IA para confeitaria no WhatsApp</a></li>
+                  <li><a href="/ai-whatsapp/marmitaria">Robô de pedidos para marmitaria</a></li>
+                </ul>
+              </div>
+            </div>
+          </li>
+          <li><a href="/blog">Blog</a></li>
         </ul>
       </nav>
       <div class="navbar__actions">
@@ -559,6 +586,20 @@
     </section>
 
     <!-- ============================================================
+         VEJA TAMBÉM (links internos)
+    ============================================================ -->
+    <section class="see-also bar-section" aria-labelledby="veja-tambem-titulo">
+      <div class="container">
+        <h2 id="veja-tambem-titulo" class="see-also__title">Veja também</h2>
+        <div class="see-also__grid">
+          <a class="see-also__card" href="/restaurantes"><strong>Sistema para restaurante</strong><span>Salão, cozinha e caixa no mesmo sistema, com pedido pela mesa.</span></a>
+          <a class="see-also__card" href="/lanchonetes"><strong>Sistema para lanchonete</strong><span>Pedido no balcão ou pelo QR Code, com a fila andando no horário de pico.</span></a>
+          <a class="see-also__card" href="/ai-whatsapp"><strong>Atendimento automático no WhatsApp</strong><span>A SpeedOrder AI atende o delivery do bar e manda o pedido para a produção.</span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
          8. CTA FINAL + FORMULÁRIO
     ============================================================ -->
     <section class="final-cta bar-final" id="comecar" aria-labelledby="cta-titulo">
@@ -630,7 +671,7 @@
     <div class="container footer__inner">
       <div class="footer__brand">
         <a href="https://www.speedorder.com.br/" class="navbar__logo" aria-label="SpeedOrder — página inicial">
-          <img src="/assets/logo_speedorder.png" alt="Logo SpeedOrder" class="navbar__logo-img navbar__logo-img--footer" width="120" height="30">
+          <img src="/assets/logo_speedorder-sm.png" alt="Logo SpeedOrder" class="navbar__logo-img navbar__logo-img--footer" width="35" height="30">
         </a>
         <p>SpeedOrder para bares: cardápio digital com QR Code, comanda digital, app do garçom, KDS e caixa com divisão de conta.</p>
         <p class="footer__contact">
@@ -640,29 +681,34 @@
       </div>
       <nav class="footer__nav" aria-label="Links do rodapé">
         <div class="footer__col">
-          <h3>Para bares</h3>
+          <h3>Sistema por segmento</h3>
           <ul>
-            <li><a href="#demonstracao">Demonstração</a></li>
-            <li><a href="#uma-noite">Uma noite no bar</a></li>
-            <li><a href="#funcionalidades">Funcionalidades</a></li>
-            <li><a href="#planos">35 dias grátis</a></li>
-            <li><a href="#faq">FAQ</a></li>
+            <li><a href="/restaurantes">Sistema para restaurante</a></li>
+            <li><a href="/bares">Sistema para bar</a></li>
+            <li><a href="/lanchonetes">Sistema para lanchonete</a></li>
+            <li><a href="/fast-food">Software para fast food</a></li>
+            <li><a href="/cafeterias">Sistema para cafeteria</a></li>
+            <li><a href="/food-trucks">Sistema para food truck</a></li>
           </ul>
         </div>
         <div class="footer__col">
-          <h3>Outros segmentos</h3>
+          <h3>SpeedOrder AI</h3>
           <ul>
+            <li><a href="/ai-whatsapp">Atendimento automático no WhatsApp</a></li>
             <li><a href="/ai-whatsapp/pizzaria">IA para pizzaria no WhatsApp</a></li>
             <li><a href="/ai-whatsapp/hamburgueria">Robô de pedidos para hamburgueria</a></li>
-            <li><a href="/ai-whatsapp">Atendimento automático para delivery</a></li>
+            <li><a href="/ai-whatsapp/confeitaria">IA para confeitaria no WhatsApp</a></li>
+            <li><a href="/ai-whatsapp/marmitaria">Robô de pedidos para marmitaria</a></li>
           </ul>
         </div>
         <div class="footer__col">
           <h3>SpeedOrder</h3>
           <ul>
-            <li><a href="https://www.speedorder.com.br/">Sistema para restaurantes</a></li>
+            <li><a href="/">Cardápio digital, PDV e KDS</a></li>
+            <li><a href="/blog">Blog</a></li>
             <li><a href="#comecar">Contato</a></li>
             <li><a href="/privacidade">Política de Privacidade</a></li>
+            <li><a href="/termos">Termos de Uso</a></li>
             <li><button type="button" class="footer__link-btn" data-consent-open>Preferências de cookies</button></li>
           </ul>
         </div>

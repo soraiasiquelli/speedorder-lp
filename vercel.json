@@ -5,6 +5,32 @@
       "has": [{ "type": "host", "value": "ai.speedorder.com.br" }],
       "dest": "/ai-whatsapp/index.html"
     },
+    {
+      "src": "^/(?!.*\\.[a-zA-Z0-9]+$)(.+)$",
+      "has": [{ "type": "host", "value": "ai.speedorder.com.br" }],
+      "status": 308,
+      "headers": { "Location": "https://www.speedorder.com.br/$1" }
+    },
+    {
+      "src": "^/index\\.html$",
+      "status": 308,
+      "headers": { "Location": "/" }
+    },
+    {
+      "src": "^/(.+)/index\\.html$",
+      "status": 308,
+      "headers": { "Location": "/$1" }
+    },
+    {
+      "src": "^/(.+)/$",
+      "status": 308,
+      "headers": { "Location": "/$1" }
+    },
+    {
+      "src": "^/assets/(.*)$",
+      "headers": { "Cache-Control": "public, max-age=604800" },
+      "continue": true
+    },
     { "handle": "filesystem" }
   ]
 }
